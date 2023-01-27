@@ -495,7 +495,6 @@ namespace Kino {
 	}
 
 	private: System::Void buyTicketsBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-		MessageBox::Show("buyBtn clicked");
 		if (this->isLogged == false) {
 			String^ gLogin = this->emailTextBox->Text;
 			int userId = this->getUserId(gLogin);

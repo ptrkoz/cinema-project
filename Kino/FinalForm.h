@@ -9,6 +9,7 @@ namespace Kino {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace ZXing;
 
 	/// <summary>
 	/// Podsumowanie informacji o FinalForm
@@ -71,6 +72,7 @@ namespace Kino {
 	private: System::Windows::Forms::Label^ seatsLabel;
 	private: System::Windows::Forms::Label^ ticketPriceLabel;
 	private: System::Windows::Forms::Label^ ticketCodeLabel;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
 
 
 
@@ -98,7 +100,9 @@ namespace Kino {
 			this->seatsLabel = (gcnew System::Windows::Forms::Label());
 			this->ticketPriceLabel = (gcnew System::Windows::Forms::Label());
 			this->ticketCodeLabel = (gcnew System::Windows::Forms::Label());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -191,11 +195,21 @@ namespace Kino {
 			this->ticketCodeLabel->TabIndex = 9;
 			this->ticketCodeLabel->Text = L"ticketCode";
 			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->Location = System::Drawing::Point(346, 271);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(200, 200);
+			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox2->TabIndex = 10;
+			this->pictureBox2->TabStop = false;
+			// 
 			// FinalForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(558, 483);
+			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->ticketCodeLabel);
 			this->Controls->Add(this->ticketPriceLabel);
 			this->Controls->Add(this->seatsLabel);
@@ -211,6 +225,7 @@ namespace Kino {
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &FinalForm::onFormClosed);
 			this->Load += gcnew System::EventHandler(this, &FinalForm::FinalForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -227,8 +242,21 @@ namespace Kino {
 		this->seatsLabel->Text = "Miejsca: " + this->selectedSeats;
 		this->ticketPriceLabel->Text = "Zap³acono: " + (15 * this->numberOfTickets) + " z³";
 		this->ticketCodeLabel->Text = "Kod: " + this->ticketCode;
+		this->generateQrCode();
+		this->setQrCodeInPictureBox();
 	}
 	
+	private: void generateQrCode() {
+		String^ qrFileName = "\images/tickets/ticket " + this->ticketCode + ".png";
+		BarcodeWriter^ qrCode = gcnew BarcodeWriter;
+		qrCode->Format = BarcodeFormat::QR_CODE;
+		qrCode->Write(this->ticketCode)->Save(qrFileName);
+	}
+
+	private: void setQrCodeInPictureBox() {
+		this->pictureBox2->ImageLocation = "\images/tickets/ticket " + this->ticketCode + ".png";
+	}
+
 	private: System::Void onFormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
 		Application::Exit();
 	}

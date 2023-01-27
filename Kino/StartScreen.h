@@ -145,7 +145,14 @@ namespace Kino {
 	private: System::Void registerBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		RegisterForm^ registerForm = gcnew RegisterForm(this);
 		this->Hide();
-		registerForm->Show();
+		registerForm->ShowDialog();
+		if (registerForm->getUser() != nullptr) {
+			LoggedScreen^ loggedScreen = gcnew LoggedScreen(this, registerForm->getUser());
+			loggedScreen->Show();
+		}
+		else {
+			this->Show();
+		}
 	}
 
 	private: System::Void StartScreen_Load(System::Object^ sender, System::EventArgs^ e) {

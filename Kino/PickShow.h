@@ -287,7 +287,15 @@ namespace Kino {
 			} else if (loginQ->choice == 3) { // zarejstruj sie //todo
 				RegisterForm^ registerForm = gcnew RegisterForm(this);
 				this->Hide();
-				registerForm->Show();
+				registerForm->ShowDialog();
+				if (registerForm->getUser() != nullptr) {
+					PickSeat^ pickSeatForm = gcnew PickSeat(this, showId, registerForm->getUser());
+					this->Hide();
+					pickSeatForm->Show();
+				}
+				else {
+					this->Show();
+				}
 			}
 		} else { // uzytkownik zalogowany
 			PickSeat^ pickSeatForm = gcnew PickSeat(this, showId, this->user);

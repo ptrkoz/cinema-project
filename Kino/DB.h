@@ -189,6 +189,7 @@ public:
 		reader->Close();
 	}
 
+	//dodaje login bez tworzenia konta
 	static int addLoginToDb(String^ login) {
 		String^ query = "INSERT INTO accounts (login, password, permissions, isOpen) VALUES (@login, '', 0, 'n') RETURNING id";
 		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
@@ -227,5 +228,18 @@ public:
 			userData->Add(reader->GetInt32(2).ToString());
 		}
 		return userData;
+	}
+
+	static int addUser(String^ login, String^ password) {
+		String^ query = "INSERT INTO accounts (login, password, permissions, isOpen) VALUES (@login,@password, 0, 'y') RETURNING id";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@login", login);
+		cmd->Parameters->AddWithValue("@password", password);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		int resultId = -1;
+		if (reader->Read()) {
+			resultId = reader->GetInt32(0);
+		}
+		return resultId;
 	}
 };
