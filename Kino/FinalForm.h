@@ -9,6 +9,8 @@ namespace Kino {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Drawing::Imaging;
+	using namespace System::IO;
 	using namespace ZXing;
 
 	/// <summary>
@@ -73,6 +75,8 @@ namespace Kino {
 	private: System::Windows::Forms::Label^ ticketPriceLabel;
 	private: System::Windows::Forms::Label^ ticketCodeLabel;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::Button^ saveQrBtn;
+
 
 
 
@@ -101,18 +105,20 @@ namespace Kino {
 			this->ticketPriceLabel = (gcnew System::Windows::Forms::Label());
 			this->ticketCodeLabel = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->saveQrBtn = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(13, 13);
+			this->button1->Location = System::Drawing::Point(101, 416);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(215, 55);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"<- powrót";
+			this->button1->Text = L"OK";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &FinalForm::button1_Click);
 			// 
 			// pictureBox1
 			// 
@@ -197,18 +203,29 @@ namespace Kino {
 			// 
 			// pictureBox2
 			// 
-			this->pictureBox2->Location = System::Drawing::Point(346, 271);
+			this->pictureBox2->Location = System::Drawing::Point(346, 220);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(200, 200);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox2->TabIndex = 10;
 			this->pictureBox2->TabStop = false;
 			// 
+			// saveQrBtn
+			// 
+			this->saveQrBtn->Location = System::Drawing::Point(346, 426);
+			this->saveQrBtn->Name = L"saveQrBtn";
+			this->saveQrBtn->Size = System::Drawing::Size(200, 45);
+			this->saveQrBtn->TabIndex = 11;
+			this->saveQrBtn->Text = L"Zapsiz kod QR";
+			this->saveQrBtn->UseVisualStyleBackColor = true;
+			this->saveQrBtn->Click += gcnew System::EventHandler(this, &FinalForm::saveQrBtn_Click);
+			// 
 			// FinalForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(558, 483);
+			this->Controls->Add(this->saveQrBtn);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->ticketCodeLabel);
 			this->Controls->Add(this->ticketPriceLabel);
@@ -245,9 +262,10 @@ namespace Kino {
 		this->generateQrCode();
 		this->setQrCodeInPictureBox();
 	}
-	
+	private: String^ ticketPath = "\images/tickets/";
+
 	private: void generateQrCode() {
-		String^ qrFileName = "\images/tickets/ticket " + this->ticketCode + ".png";
+		String^ qrFileName = ticketPath + "ticket " + this->ticketCode + ".png";
 		BarcodeWriter^ qrCode = gcnew BarcodeWriter;
 		qrCode->Format = BarcodeFormat::QR_CODE;
 		qrCode->Write(this->ticketCode)->Save(qrFileName);
@@ -259,6 +277,41 @@ namespace Kino {
 
 	private: System::Void onFormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
 		Application::Exit();
+	}
+
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Restart();
+		
+		//if (this->user == nullptr) {
+		//	//StartScreen^ startScreen = gcnew StartScreen;
+		//	this->Hide();
+		//	//startScreen->Show();
+		//} else {
+		//	LoggedScreen ^ loggedScreen = gcnew LoggedScreen(this, this->user);
+		//	this->Hide();
+		//	loggedScreen->Show();
+		//}
+	}
+
+	private: System::Void saveQrBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		SaveFileDialog^ sDialog = gcnew SaveFileDialog;
+		sDialog->Filter = "PNG|*.png|JPG|*.jpg";
+		String^ prefix = "";
+		if (this->numberOfTickets == 1) {
+			prefix = "Bilet ";
+		} else {
+			prefix = "Bilety ";
+		}
+		String^ sufix = this->showDate->Split(' ')[0];
+		sDialog->FileName = prefix + this->movieName + " " + sufix + ".png";
+		ImageFormat^ sFormat = ImageFormat::Png;
+		if (sDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			String^ ext = Path::GetExtension(sDialog->FileName);
+			if (ext == ".jpg") { // zmiana formatu zdjecia jesli tak wybral uzytkownik
+				sFormat = ImageFormat::Jpeg;
+			}
+			pictureBox2->Image->Save(sDialog->FileName, sFormat);
+		}
 	}
 };
 }
