@@ -1,6 +1,7 @@
 #pragma once
 #include "User.h"
 #include "PickDateForm.h"
+#include "MyTickets.h"
 
 namespace Kino {
 
@@ -40,9 +41,10 @@ namespace Kino {
 		}
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ browseMoviesBtn;
+	private: System::Windows::Forms::Button^ myTicketsBtn;
 	protected:
 
-	private: System::Windows::Forms::Button^ button2;
+
 	private: System::Windows::Forms::Button^ logOutBtn;
 
 	private: Form^ startScreen;
@@ -64,7 +66,7 @@ namespace Kino {
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->browseMoviesBtn = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->myTicketsBtn = (gcnew System::Windows::Forms::Button());
 			this->logOutBtn = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
@@ -89,14 +91,15 @@ namespace Kino {
 			this->browseMoviesBtn->UseVisualStyleBackColor = true;
 			this->browseMoviesBtn->Click += gcnew System::EventHandler(this, &LoggedScreen::browseMoviesBtn_Click);
 			// 
-			// button2
+			// myTicketsBtn
 			// 
-			this->button2->Location = System::Drawing::Point(98, 168);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
-			this->button2->TabIndex = 2;
-			this->button2->Text = L"Moje bilety";
-			this->button2->UseVisualStyleBackColor = true;
+			this->myTicketsBtn->Location = System::Drawing::Point(98, 168);
+			this->myTicketsBtn->Name = L"myTicketsBtn";
+			this->myTicketsBtn->Size = System::Drawing::Size(75, 23);
+			this->myTicketsBtn->TabIndex = 2;
+			this->myTicketsBtn->Text = L"Moje bilety";
+			this->myTicketsBtn->UseVisualStyleBackColor = true;
+			this->myTicketsBtn->Click += gcnew System::EventHandler(this, &LoggedScreen::myTicketsBtn_Click);
 			// 
 			// logOutBtn
 			// 
@@ -114,7 +117,7 @@ namespace Kino {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(284, 261);
 			this->Controls->Add(this->logOutBtn);
-			this->Controls->Add(this->button2);
+			this->Controls->Add(this->myTicketsBtn);
 			this->Controls->Add(this->browseMoviesBtn);
 			this->Controls->Add(this->label1);
 			this->Name = L"LoggedScreen";
@@ -143,6 +146,12 @@ namespace Kino {
 		PickDateForm^ pickDateForm = gcnew PickDateForm(this, this->user);
 		this->Hide();
 		pickDateForm->Show();
+	}
+
+	private: System::Void myTicketsBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		MyTickets^ myTickets = gcnew MyTickets(this, this->user);
+		this->Hide();
+		myTickets->Show();
 	}
 };
 }

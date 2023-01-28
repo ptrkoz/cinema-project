@@ -1,4 +1,5 @@
 #pragma once
+#include "DB.h"
 #include "User.h"
 
 namespace Kino {
@@ -23,7 +24,23 @@ namespace Kino {
 		{
 			InitializeComponent();
 		}
-		FinalForm(Form^ prevForm, String^ imageLocation, String^ movieName, String^ showDate, String^ showVersion, String^ showRoom, String^ selectedSeats, String^ ticketCode, int numberOfTickets, User^ user)
+
+		FinalForm(String^ imageLocation, String^ movieName, String^ showDate, String^ showVersion, String^ showRoom, String^ selectedSeats, String^ ticketCode, int ticketId, int numberOfTickets, User^ user)
+		{
+			InitializeComponent();
+			this->imageLocation = imageLocation;
+			this->movieName = movieName;
+			this->showDate = showDate;
+			this->showVersion = showVersion;
+			this->showRoom = showRoom;
+			this->selectedSeats = selectedSeats;
+			this->ticketCode = ticketCode;
+			this->ticketId = ticketId;
+			this->numberOfTickets = numberOfTickets;
+			this->user = user;
+		}
+
+		FinalForm(Form^ prevForm, String^ imageLocation, String^ movieName, String^ showDate, String^ showVersion, String^ showRoom, String^ selectedSeats, String^ ticketCode, int ticketId, int numberOfTickets, User^ user)
 		{
 			InitializeComponent();
 			this->prevForm = prevForm;
@@ -34,6 +51,7 @@ namespace Kino {
 			this->showRoom = showRoom;
 			this->selectedSeats = selectedSeats;
 			this->ticketCode = ticketCode;
+			this->ticketId = ticketId;
 			this->numberOfTickets = numberOfTickets;
 			this->user = user;
 		}
@@ -53,7 +71,7 @@ namespace Kino {
 		/// <summary>
 		/// Wymagana zmienna projektanta.
 		/// </summary>
-	private: Form^ prevForm;
+	private: Form^ prevForm = nullptr;
 	private: String^ imageLocation;
 	private: String^ movieName;
 	private: String^ showDate;
@@ -62,6 +80,7 @@ namespace Kino {
 	private: String^ showId;
 	private: String^ selectedSeats;
 	private: String^ ticketCode;
+	private: int ticketId;
 	private: int numberOfTickets;
 	private: User^ user = nullptr;
 	private: System::Windows::Forms::Button^ button1;
@@ -76,6 +95,9 @@ namespace Kino {
 	private: System::Windows::Forms::Label^ ticketCodeLabel;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
 	private: System::Windows::Forms::Button^ saveQrBtn;
+	private: System::Windows::Forms::Button^ returnTicketBtn;
+	private: System::Windows::Forms::Button^ backBtn;
+
 
 
 
@@ -106,23 +128,25 @@ namespace Kino {
 			this->ticketCodeLabel = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->saveQrBtn = (gcnew System::Windows::Forms::Button());
+			this->returnTicketBtn = (gcnew System::Windows::Forms::Button());
+			this->backBtn = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(101, 416);
+			this->button1->Location = System::Drawing::Point(379, 551);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(215, 55);
+			this->button1->Size = System::Drawing::Size(167, 43);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"OK";
+			this->button1->Text = L"Powrót na strone g³ówn¹";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &FinalForm::button1_Click);
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(13, 53);
+			this->pictureBox1->Location = System::Drawing::Point(12, 379);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(150, 221);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -132,7 +156,7 @@ namespace Kino {
 			// movieNameLabel
 			// 
 			this->movieNameLabel->AutoSize = true;
-			this->movieNameLabel->Location = System::Drawing::Point(170, 53);
+			this->movieNameLabel->Location = System::Drawing::Point(180, 390);
 			this->movieNameLabel->Name = L"movieNameLabel";
 			this->movieNameLabel->Size = System::Drawing::Size(63, 13);
 			this->movieNameLabel->TabIndex = 2;
@@ -141,7 +165,7 @@ namespace Kino {
 			// showDateLabel
 			// 
 			this->showDateLabel->AutoSize = true;
-			this->showDateLabel->Location = System::Drawing::Point(170, 80);
+			this->showDateLabel->Location = System::Drawing::Point(180, 420);
 			this->showDateLabel->Name = L"showDateLabel";
 			this->showDateLabel->Size = System::Drawing::Size(55, 13);
 			this->showDateLabel->TabIndex = 3;
@@ -150,7 +174,7 @@ namespace Kino {
 			// showVersionLabel
 			// 
 			this->showVersionLabel->AutoSize = true;
-			this->showVersionLabel->Location = System::Drawing::Point(173, 110);
+			this->showVersionLabel->Location = System::Drawing::Point(180, 447);
 			this->showVersionLabel->Name = L"showVersionLabel";
 			this->showVersionLabel->Size = System::Drawing::Size(67, 13);
 			this->showVersionLabel->TabIndex = 4;
@@ -159,7 +183,7 @@ namespace Kino {
 			// showRoomLabel
 			// 
 			this->showRoomLabel->AutoSize = true;
-			this->showRoomLabel->Location = System::Drawing::Point(170, 142);
+			this->showRoomLabel->Location = System::Drawing::Point(180, 479);
 			this->showRoomLabel->Name = L"showRoomLabel";
 			this->showRoomLabel->Size = System::Drawing::Size(60, 13);
 			this->showRoomLabel->TabIndex = 5;
@@ -168,7 +192,7 @@ namespace Kino {
 			// numberOfTicketsLabel
 			// 
 			this->numberOfTicketsLabel->AutoSize = true;
-			this->numberOfTicketsLabel->Location = System::Drawing::Point(170, 169);
+			this->numberOfTicketsLabel->Location = System::Drawing::Point(180, 507);
 			this->numberOfTicketsLabel->Name = L"numberOfTicketsLabel";
 			this->numberOfTicketsLabel->Size = System::Drawing::Size(88, 13);
 			this->numberOfTicketsLabel->TabIndex = 6;
@@ -177,7 +201,7 @@ namespace Kino {
 			// seatsLabel
 			// 
 			this->seatsLabel->AutoSize = true;
-			this->seatsLabel->Location = System::Drawing::Point(170, 196);
+			this->seatsLabel->Location = System::Drawing::Point(180, 534);
 			this->seatsLabel->Name = L"seatsLabel";
 			this->seatsLabel->Size = System::Drawing::Size(58, 13);
 			this->seatsLabel->TabIndex = 7;
@@ -186,7 +210,7 @@ namespace Kino {
 			// ticketPriceLabel
 			// 
 			this->ticketPriceLabel->AutoSize = true;
-			this->ticketPriceLabel->Location = System::Drawing::Point(173, 229);
+			this->ticketPriceLabel->Location = System::Drawing::Point(180, 566);
 			this->ticketPriceLabel->Name = L"ticketPriceLabel";
 			this->ticketPriceLabel->Size = System::Drawing::Size(57, 13);
 			this->ticketPriceLabel->TabIndex = 8;
@@ -195,15 +219,17 @@ namespace Kino {
 			// ticketCodeLabel
 			// 
 			this->ticketCodeLabel->AutoSize = true;
-			this->ticketCodeLabel->Location = System::Drawing::Point(170, 261);
+			this->ticketCodeLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+			this->ticketCodeLabel->Location = System::Drawing::Point(186, 233);
 			this->ticketCodeLabel->Name = L"ticketCodeLabel";
-			this->ticketCodeLabel->Size = System::Drawing::Size(58, 13);
+			this->ticketCodeLabel->Size = System::Drawing::Size(182, 39);
 			this->ticketCodeLabel->TabIndex = 9;
 			this->ticketCodeLabel->Text = L"ticketCode";
 			// 
 			// pictureBox2
 			// 
-			this->pictureBox2->Location = System::Drawing::Point(346, 220);
+			this->pictureBox2->Location = System::Drawing::Point(183, 12);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(200, 200);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -212,7 +238,7 @@ namespace Kino {
 			// 
 			// saveQrBtn
 			// 
-			this->saveQrBtn->Location = System::Drawing::Point(346, 426);
+			this->saveQrBtn->Location = System::Drawing::Point(183, 292);
 			this->saveQrBtn->Name = L"saveQrBtn";
 			this->saveQrBtn->Size = System::Drawing::Size(200, 45);
 			this->saveQrBtn->TabIndex = 11;
@@ -220,11 +246,37 @@ namespace Kino {
 			this->saveQrBtn->UseVisualStyleBackColor = true;
 			this->saveQrBtn->Click += gcnew System::EventHandler(this, &FinalForm::saveQrBtn_Click);
 			// 
+			// returnTicketBtn
+			// 
+			this->returnTicketBtn->BackColor = System::Drawing::Color::Maroon;
+			this->returnTicketBtn->ForeColor = System::Drawing::SystemColors::Control;
+			this->returnTicketBtn->Location = System::Drawing::Point(379, 492);
+			this->returnTicketBtn->Name = L"returnTicketBtn";
+			this->returnTicketBtn->Size = System::Drawing::Size(167, 43);
+			this->returnTicketBtn->TabIndex = 12;
+			this->returnTicketBtn->Text = L"Zwróæ bilet";
+			this->returnTicketBtn->UseVisualStyleBackColor = false;
+			this->returnTicketBtn->Visible = false;
+			this->returnTicketBtn->Click += gcnew System::EventHandler(this, &FinalForm::returnTicketBtn_Click);
+			// 
+			// backBtn
+			// 
+			this->backBtn->Location = System::Drawing::Point(12, 12);
+			this->backBtn->Name = L"backBtn";
+			this->backBtn->Size = System::Drawing::Size(75, 23);
+			this->backBtn->TabIndex = 13;
+			this->backBtn->Text = L"<- powrót";
+			this->backBtn->UseVisualStyleBackColor = true;
+			this->backBtn->Visible = false;
+			this->backBtn->Click += gcnew System::EventHandler(this, &FinalForm::backBtn_Click);
+			// 
 			// FinalForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(558, 483);
+			this->ClientSize = System::Drawing::Size(558, 612);
+			this->Controls->Add(this->backBtn);
+			this->Controls->Add(this->returnTicketBtn);
 			this->Controls->Add(this->saveQrBtn);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->ticketCodeLabel);
@@ -258,9 +310,11 @@ namespace Kino {
 		this->numberOfTicketsLabel->Text = "Iloœæ biletów: " + this->numberOfTickets.ToString();
 		this->seatsLabel->Text = "Miejsca: " + this->selectedSeats;
 		this->ticketPriceLabel->Text = "Zap³acono: " + (15 * this->numberOfTickets) + " z³";
-		this->ticketCodeLabel->Text = "Kod: " + this->ticketCode;
+		this->ticketCodeLabel->Text = this->ticketCode;
 		this->generateQrCode();
 		this->setQrCodeInPictureBox();
+		this->setReturnBtnVisibility();
+		this->setGoBackBtnVisibility();
 	}
 	private: String^ ticketPath = "\images/tickets/";
 
@@ -273,6 +327,32 @@ namespace Kino {
 
 	private: void setQrCodeInPictureBox() {
 		this->pictureBox2->ImageLocation = "\images/tickets/ticket " + this->ticketCode + ".png";
+	}
+	
+	private: void setReturnBtnVisibility() {
+		DateTime now = DateTime::Now;
+		DateTime pShowDate = DateTime::Parse(this->showDate);
+		if (DateTime::Compare(now, pShowDate) < 0) {
+			this->returnTicketBtn->Visible = true;
+		} else {
+			this->returnTicketBtn->Visible = false;
+		}
+	}
+	private: void setGoBackBtnVisibility() {
+		if (this->prevForm != nullptr) {
+			this->backBtn->Visible = true;
+		} else {
+			this->backBtn->Visible = false;
+		}
+	}
+
+	private: System::Void returnTicketBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (MessageBox::Show("Czy napewno chcesz zwróciæ bilet?", "Zwort biletu", MessageBoxButtons::YesNo, MessageBoxIcon::Exclamation) == System::Windows::Forms::DialogResult::Yes) {
+			DB::returnTicket(this->ticketId);
+			this->Hide();
+			this->prevForm->Show();
+		}
+
 	}
 
 	private: System::Void onFormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
@@ -312,6 +392,11 @@ namespace Kino {
 			}
 			pictureBox2->Image->Save(sDialog->FileName, sFormat);
 		}
+	}
+
+	private: System::Void backBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Hide();
+		this->prevForm->Show();
 	}
 };
 }

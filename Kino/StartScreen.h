@@ -4,6 +4,7 @@
 //#include "User.h"
 #include "LoginForm.h"
 #include "LoggedScreen.h"
+#include "AdminScreen.h"
 #include "RegisterForm.h"
 #include "PickDateForm.h"
 
@@ -124,6 +125,7 @@ namespace Kino {
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	}
+
 	private: System::Void browseMoviesBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		PickDateForm^ pickDateForm = gcnew PickDateForm(this);
 		this->Hide();
@@ -135,8 +137,13 @@ namespace Kino {
 		this->Hide();
 		loginForm->ShowDialog();
 		if (loginForm->getUser() != nullptr) {
-			LoggedScreen^ loggedScreen = gcnew LoggedScreen(this, loginForm->getUser());
-			loggedScreen->Show();
+			if (loginForm->getUser()->getPermissions() == 1) {
+				AdminScreen^ adminScreen = gcnew AdminScreen(this, loginForm->getUser());
+				adminScreen->Show();
+			} else {
+				LoggedScreen^ loggedScreen = gcnew LoggedScreen(this, loginForm->getUser());
+				loggedScreen->Show();
+			}
 		} else {
 			this->Show();
 		}

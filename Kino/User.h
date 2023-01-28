@@ -16,4 +16,8 @@ public:
 	int getId() {
 		return this->id;
 	}
+
+	int getPermissions() {
+		return this->permissions;
+	}
 };

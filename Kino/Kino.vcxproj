@@ -143,11 +143,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AdminScreen.cpp" />
     <ClCompile Include="FinalForm.cpp" />
     <ClCompile Include="LoggedScreen.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="LoginQ.cpp" />
     <ClCompile Include="Movie.cpp" />
+    <ClCompile Include="MyTickets.cpp" />
     <ClCompile Include="PaymentForm.cpp" />
     <ClCompile Include="PickDateForm.cpp" />
     <ClCompile Include="PickSeat.cpp" />
@@ -156,6 +158,9 @@
     <ClCompile Include="StartScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdminScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="DB.h" />
     <ClInclude Include="FinalForm.h">
       <FileType>CppForm</FileType>
@@ -170,6 +175,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Movie.h" />
+    <ClInclude Include="MyTickets.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="PaymentForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -191,6 +199,9 @@
     <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdminScreen.resx">
+      <DependentUpon>AdminScreen.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FinalForm.resx">
       <DependentUpon>FinalForm.h</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginQ.resx">
       <DependentUpon>LoginQ.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyTickets.resx">
+      <DependentUpon>MyTickets.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentForm.resx">
       <DependentUpon>PaymentForm.h</DependentUpon>

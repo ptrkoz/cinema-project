@@ -215,6 +215,7 @@ public:
 		reader->Close();
 		return userId;
 	}
+	
 
 	static List<String^>^ getUserData(int userId) {
 		String^ query = "SELECT accounts.id, accounts.login, accounts.permissions FROM accounts WHERE accounts.id=@id";
@@ -241,5 +242,67 @@ public:
 			resultId = reader->GetInt32(0);
 		}
 		return resultId;
+	}
+
+	static DataTable^ getMyTicketsList(int userId) {
+		String^ query = "SELECT movies.image, movies.name, shows.date, tickets.id, COUNT(ticketsSeats.id) FROM tickets JOIN shows ON tickets.show_id = shows.id JOIN movies ON shows.movie_id = movies.id JOIN ticketsSeats ON tickets.id = ticketsSeats.id WHERE account_id = @userId GROUP BY ticketsSeats.id ORDER BY shows.date DESC";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@userId", userId);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		DataTable^ myTickets = gcnew DataTable;
+		myTickets->Clear();
+		myTickets->Load(reader);
+		reader->Close();
+		return myTickets;
+	}
+
+	static void returnTicket(int ticketId) {
+		String^ query = "DELETE FROM tickets WHERE tickets.id = @ticketId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@ticketId", ticketId);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		reader->Close();
+
+		String^ query2 = "DELETE FROM ticketsSeats WHERE ticketsSeats.id = @ticketId";
+		SQLiteCommand^ cmd2 = gcnew SQLiteCommand(query2, con);
+		cmd2->Parameters->AddWithValue("@ticketId", ticketId);
+		SQLiteDataReader^ reader2 = cmd2->ExecuteReader();
+		reader2->Close();
+	}
+
+	static List<String^>^ getTicketData(int ticketId) {
+		String^ query = "SELECT movies.image, movies.name, shows.date, shows.dimension, shows.language, rooms.name, tickets.code FROM tickets JOIN shows ON tickets.show_id = shows.id JOIN rooms ON shows.room_id = rooms.id JOIN movies ON shows.movie_id = movies.id WHERE tickets.id = @ticketId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@ticketId", ticketId);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		List<String^>^ ticketData = gcnew List<String^>;
+		if (reader->Read()) {
+			ticketData->Add(reader->GetString(0));
+			ticketData->Add(reader->GetString(1));
+			ticketData->Add(reader->GetDateTime(2).ToString("dd.MM.yyyy HH:mm"));
+			String^ lang = reader->GetString(4);
+			if (lang == "sub") {
+				lang = "napisy";
+			} else if (lang == "dub") {
+				lang = "dubbing";
+			}
+			String^ showVersion = reader->GetString(3) + ", " + lang;
+			ticketData->Add(showVersion);
+			ticketData->Add(reader->GetString(5));
+			ticketData->Add(reader->GetString(6));
+		}
+		return ticketData;
+	}
+
+	static List<String^>^ getTicketSeats(int ticketId) {
+		String^ query = "SELECT ticketsSeats.seat FROM ticketsSeats WHERE ticketsSeats.id = @ticketId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@ticketId", ticketId);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		List<String^>^ ticketSeats = gcnew List<String^>;
+		while (reader->Read()) {
+			ticketSeats->Add(reader["seat"]->ToString());
+		}
+		return ticketSeats;
 	}
 };

@@ -495,19 +495,20 @@ namespace Kino {
 	}
 
 	private: System::Void buyTicketsBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		int ticketId;
 		if (this->isLogged == false) {
 			String^ gLogin = this->emailTextBox->Text;
 			int userId = this->getUserId(gLogin);
 			if (userId == -1) { // uzytkownik nie kupowal jeszcze z tego adresu email
 				userId = addLoginToDb(gLogin);
 			}
-			int ticketId = saveTickets(userId);
+			ticketId = saveTickets(userId);
 			saveTicketsSeats(ticketId);
 		} else {
-			int ticketId = saveTickets(this->user->getId());
+			ticketId = saveTickets(this->user->getId());
 			saveTicketsSeats(ticketId);
 		}
-		FinalForm^ finalForm = gcnew FinalForm(this, this->imageLocation, this->movieName, this->showDate, this->showVersion, this->showRoom, listToString(this->selectedSeats), this->ticketCode, this->selectedSeats.Count, this->user);
+		FinalForm^ finalForm = gcnew FinalForm(this->imageLocation, this->movieName, this->showDate, this->showVersion, this->showRoom, listToString(this->selectedSeats), this->ticketCode, ticketId, this->selectedSeats.Count, this->user);
 		this->Hide();
 		finalForm->Show();
 	}
