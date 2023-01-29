@@ -108,6 +108,7 @@ namespace Kino {
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(240, 129);
 			this->dataGridView1->TabIndex = 3;
+			this->dataGridView1->Visible = false;
 			// 
 			// MyTickets
 			// 

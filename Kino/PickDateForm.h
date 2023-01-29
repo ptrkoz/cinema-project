@@ -196,6 +196,7 @@ namespace Kino {
 			this->dataGridView1->RowHeadersWidth = 62;
 			this->dataGridView1->Size = System::Drawing::Size(90, 82);
 			this->dataGridView1->TabIndex = 7;
+			this->dataGridView1->Visible = false;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PickDateForm::dataGridView1_CellContentClick);
 			// 
 			// pictureBox3

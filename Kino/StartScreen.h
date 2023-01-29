@@ -39,6 +39,10 @@ namespace Kino {
 	private: System::Windows::Forms::Button^ browseMoviesBtn;
 	private: System::Windows::Forms::Button^ loginBtn;
 	private: System::Windows::Forms::Button^ registerBtn;
+	private: System::Windows::Forms::Button^ aboutBtn;
+	private: System::Windows::Forms::Button^ exitBtn;
+
+
 
 
 
@@ -61,6 +65,8 @@ namespace Kino {
 			this->browseMoviesBtn = (gcnew System::Windows::Forms::Button());
 			this->loginBtn = (gcnew System::Windows::Forms::Button());
 			this->registerBtn = (gcnew System::Windows::Forms::Button());
+			this->aboutBtn = (gcnew System::Windows::Forms::Button());
+			this->exitBtn = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -68,7 +74,7 @@ namespace Kino {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(80, 50);
+			this->label1->Location = System::Drawing::Point(161, 34);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(120, 55);
 			this->label1->TabIndex = 0;
@@ -77,9 +83,11 @@ namespace Kino {
 			// 
 			// browseMoviesBtn
 			// 
-			this->browseMoviesBtn->Location = System::Drawing::Point(80, 138);
+			this->browseMoviesBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+			this->browseMoviesBtn->Location = System::Drawing::Point(105, 122);
 			this->browseMoviesBtn->Name = L"browseMoviesBtn";
-			this->browseMoviesBtn->Size = System::Drawing::Size(120, 23);
+			this->browseMoviesBtn->Size = System::Drawing::Size(235, 68);
 			this->browseMoviesBtn->TabIndex = 1;
 			this->browseMoviesBtn->Text = L"Przegl¹daj repertuar";
 			this->browseMoviesBtn->UseVisualStyleBackColor = true;
@@ -87,9 +95,11 @@ namespace Kino {
 			// 
 			// loginBtn
 			// 
-			this->loginBtn->Location = System::Drawing::Point(100, 177);
+			this->loginBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->loginBtn->Location = System::Drawing::Point(105, 196);
 			this->loginBtn->Name = L"loginBtn";
-			this->loginBtn->Size = System::Drawing::Size(75, 23);
+			this->loginBtn->Size = System::Drawing::Size(235, 68);
 			this->loginBtn->TabIndex = 2;
 			this->loginBtn->Text = L"Zaloguj siê";
 			this->loginBtn->UseVisualStyleBackColor = true;
@@ -97,19 +107,47 @@ namespace Kino {
 			// 
 			// registerBtn
 			// 
-			this->registerBtn->Location = System::Drawing::Point(94, 211);
+			this->registerBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->registerBtn->Location = System::Drawing::Point(105, 270);
 			this->registerBtn->Name = L"registerBtn";
-			this->registerBtn->Size = System::Drawing::Size(88, 23);
+			this->registerBtn->Size = System::Drawing::Size(235, 68);
 			this->registerBtn->TabIndex = 3;
 			this->registerBtn->Text = L"Zarejestruj siê";
 			this->registerBtn->UseVisualStyleBackColor = true;
 			this->registerBtn->Click += gcnew System::EventHandler(this, &StartScreen::registerBtn_Click);
 			// 
+			// aboutBtn
+			// 
+			this->aboutBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->aboutBtn->Location = System::Drawing::Point(105, 363);
+			this->aboutBtn->Name = L"aboutBtn";
+			this->aboutBtn->Size = System::Drawing::Size(235, 68);
+			this->aboutBtn->TabIndex = 4;
+			this->aboutBtn->Text = L"O aplikacji";
+			this->aboutBtn->UseVisualStyleBackColor = true;
+			this->aboutBtn->Click += gcnew System::EventHandler(this, &StartScreen::aboutBtn_Click);
+			// 
+			// exitBtn
+			// 
+			this->exitBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->exitBtn->Location = System::Drawing::Point(105, 437);
+			this->exitBtn->Name = L"exitBtn";
+			this->exitBtn->Size = System::Drawing::Size(235, 68);
+			this->exitBtn->TabIndex = 5;
+			this->exitBtn->Text = L"WyjdŸ";
+			this->exitBtn->UseVisualStyleBackColor = true;
+			this->exitBtn->Click += gcnew System::EventHandler(this, &StartScreen::exitBtn_Click);
+			// 
 			// StartScreen
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(453, 533);
+			this->Controls->Add(this->exitBtn);
+			this->Controls->Add(this->aboutBtn);
 			this->Controls->Add(this->registerBtn);
 			this->Controls->Add(this->loginBtn);
 			this->Controls->Add(this->browseMoviesBtn);
@@ -164,6 +202,14 @@ namespace Kino {
 
 	private: System::Void StartScreen_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->CenterToScreen();
+	}
+
+	private: System::Void exitBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
+	}
+
+	private: System::Void aboutBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		MessageBox::Show("Aplikacja dla klientów kina oraz do zarz¹dzania kinem.", "O aplikcaji", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 };
 }

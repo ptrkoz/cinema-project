@@ -1,5 +1,8 @@
 #pragma once
 #include "User.h"
+#include "AdminMovies.h"
+#include "AdminShows.h"
+#include "AdminRooms.h"
 
 namespace Kino {
 
@@ -40,10 +43,14 @@ namespace Kino {
 	private: Form^ prevForm;
 	private: User^ user = nullptr;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ button3;
-	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::Button^ MovieBtn;
+	private: System::Windows::Forms::Button^ ShowBtn;
+	private: System::Windows::Forms::Button^ RoomsBtn;
+	private: System::Windows::Forms::Button^ logOutBtn;
+
+
+
+
 	private:
 		/// <summary>
 		/// Wymagana zmienna projektanta.
@@ -58,10 +65,10 @@ namespace Kino {
 		void InitializeComponent(void)
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->MovieBtn = (gcnew System::Windows::Forms::Button());
+			this->ShowBtn = (gcnew System::Windows::Forms::Button());
+			this->RoomsBtn = (gcnew System::Windows::Forms::Button());
+			this->logOutBtn = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -75,59 +82,63 @@ namespace Kino {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Panel administratora";
 			// 
-			// button1
+			// MovieBtn
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->MovieBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->button1->Location = System::Drawing::Point(135, 153);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(221, 73);
-			this->button1->TabIndex = 1;
-			this->button1->Text = L"Filmy";
-			this->button1->UseVisualStyleBackColor = true;
+			this->MovieBtn->Location = System::Drawing::Point(135, 153);
+			this->MovieBtn->Name = L"MovieBtn";
+			this->MovieBtn->Size = System::Drawing::Size(221, 73);
+			this->MovieBtn->TabIndex = 1;
+			this->MovieBtn->Text = L"Filmy";
+			this->MovieBtn->UseVisualStyleBackColor = true;
+			this->MovieBtn->Click += gcnew System::EventHandler(this, &AdminScreen::MovieBtn_Click);
 			// 
-			// button2
+			// ShowBtn
 			// 
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->ShowBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->button2->Location = System::Drawing::Point(135, 246);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(221, 73);
-			this->button2->TabIndex = 2;
-			this->button2->Text = L"Seanse";
-			this->button2->UseVisualStyleBackColor = true;
+			this->ShowBtn->Location = System::Drawing::Point(135, 246);
+			this->ShowBtn->Name = L"ShowBtn";
+			this->ShowBtn->Size = System::Drawing::Size(221, 73);
+			this->ShowBtn->TabIndex = 2;
+			this->ShowBtn->Text = L"Seanse";
+			this->ShowBtn->UseVisualStyleBackColor = true;
+			this->ShowBtn->Click += gcnew System::EventHandler(this, &AdminScreen::ShowBtnClick);
 			// 
-			// button3
+			// RoomsBtn
 			// 
-			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->RoomsBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->button3->Location = System::Drawing::Point(135, 341);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(221, 73);
-			this->button3->TabIndex = 3;
-			this->button3->Text = L"Sale";
-			this->button3->UseVisualStyleBackColor = true;
+			this->RoomsBtn->Location = System::Drawing::Point(135, 341);
+			this->RoomsBtn->Name = L"RoomsBtn";
+			this->RoomsBtn->Size = System::Drawing::Size(221, 73);
+			this->RoomsBtn->TabIndex = 3;
+			this->RoomsBtn->Text = L"Sale";
+			this->RoomsBtn->UseVisualStyleBackColor = true;
+			this->RoomsBtn->Click += gcnew System::EventHandler(this, &AdminScreen::RoomsBtn_Click);
 			// 
-			// button4
+			// logOutBtn
 			// 
-			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->logOutBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->button4->Location = System::Drawing::Point(135, 437);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(221, 73);
-			this->button4->TabIndex = 4;
-			this->button4->Text = L"Wyloguj siê";
-			this->button4->UseVisualStyleBackColor = true;
+			this->logOutBtn->Location = System::Drawing::Point(135, 437);
+			this->logOutBtn->Name = L"logOutBtn";
+			this->logOutBtn->Size = System::Drawing::Size(221, 73);
+			this->logOutBtn->TabIndex = 4;
+			this->logOutBtn->Text = L"Wyloguj siê";
+			this->logOutBtn->UseVisualStyleBackColor = true;
+			this->logOutBtn->Click += gcnew System::EventHandler(this, &AdminScreen::logOutBtn_Click);
 			// 
 			// AdminScreen
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(511, 571);
-			this->Controls->Add(this->button4);
-			this->Controls->Add(this->button3);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->logOutBtn);
+			this->Controls->Add(this->RoomsBtn);
+			this->Controls->Add(this->ShowBtn);
+			this->Controls->Add(this->MovieBtn);
 			this->Controls->Add(this->label1);
 			this->Name = L"AdminScreen";
 			this->Text = L"AdminScreen";
@@ -144,6 +155,28 @@ namespace Kino {
 
 	private: System::Void onFormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
 		Application::Exit();
+	}
+
+	private: System::Void MovieBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		AdminMovies^ adminMovies = gcnew AdminMovies(this);
+		this->Hide();
+		adminMovies->Show();
+	}
+
+	private: System::Void ShowBtnClick(System::Object^ sender, System::EventArgs^ e) {
+		AdminShows^ adminShows = gcnew AdminShows(this);
+		this->Hide();
+		adminShows->Show();
+	}
+
+	private: System::Void RoomsBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		AdminRooms^ adminRooms = gcnew AdminRooms(this);
+		this->Hide();
+		adminRooms->Show();
+	}
+
+	private: System::Void logOutBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Restart();
 	}
 };
 }

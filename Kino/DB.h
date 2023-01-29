@@ -305,4 +305,57 @@ public:
 		}
 		return ticketSeats;
 	}
+
+	static DataTable^ getMovies() {
+		String^ query = "SELECT movies.id, movies.name, movies.image FROM movies ORDER BY movies.id DESC";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		DataTable^ result = gcnew DataTable;
+		result->Clear();
+		result->Load(reader);
+		reader->Close();
+		return result;
+	}
+
+	static bool isShowOfTheMovie(int movieId) {
+		String^ query = "SELECT shows.movie_id FROM shows WHERE shows.movie_id = @movieId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@movieId", movieId);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		if (reader->Read()) {
+			reader->Close();
+			return true;
+		}
+		reader->Close();
+		return false;
+	}
+
+	static void deleteMovie(int movieId) {
+		String^ query = "DELETE FROM movies WHERE movies.id = @movieId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@movieId", movieId);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		reader->Close();
+	}
+
+	static void updateMovie(int movieId, String^ movieName, String^ movieDesc, String^ posterFileName) {
+		String^ query = "UPDATE movies SET name = @movieName, description = @movieDesc, image = @posterFileName WHERE id = @movieId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@movieId", movieId);
+		cmd->Parameters->AddWithValue("@movieName", movieName);
+		cmd->Parameters->AddWithValue("@movieDesc", movieDesc);
+		cmd->Parameters->AddWithValue("@posterFileName", posterFileName);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		reader->Close();
+	}
+
+	static void addMovie(String^ movieName, String^ movieDesc, String^ posterFileName) {
+		String^ query = "INSERT INTO movies (name, description, image) VALUES (@movieName, @movieDesc, @posterFileName)";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@movieName", movieName);
+		cmd->Parameters->AddWithValue("@movieDesc", movieDesc);
+		cmd->Parameters->AddWithValue("@posterFileName", posterFileName);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		reader->Close();
+	}
 };
