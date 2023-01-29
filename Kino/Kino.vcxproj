@@ -148,6 +148,8 @@
     <ClCompile Include="AdminScreen.cpp" />
     <ClCompile Include="AdminShows.cpp" />
     <ClCompile Include="EditMovie.cpp" />
+    <ClCompile Include="EditRoom.cpp" />
+    <ClCompile Include="EditShow.cpp" />
     <ClCompile Include="FinalForm.cpp" />
     <ClCompile Include="LoggedScreen.cpp" />
     <ClCompile Include="LoginForm.cpp" />
@@ -176,6 +178,12 @@
     </ClInclude>
     <ClInclude Include="DB.h" />
     <ClInclude Include="EditMovie.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="EditRoom.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="EditShow.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="FinalForm.h">
@@ -218,11 +226,23 @@
     <EmbeddedResource Include="AdminMovies.resx">
       <DependentUpon>AdminMovies.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminRooms.resx">
+      <DependentUpon>AdminRooms.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminScreen.resx">
       <DependentUpon>AdminScreen.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminShows.resx">
+      <DependentUpon>AdminShows.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditMovie.resx">
       <DependentUpon>EditMovie.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRoom.resx">
+      <DependentUpon>EditRoom.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditShow.resx">
+      <DependentUpon>EditShow.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FinalForm.resx">
       <DependentUpon>FinalForm.h</DependentUpon>

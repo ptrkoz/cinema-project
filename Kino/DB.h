@@ -317,6 +317,17 @@ public:
 		return result;
 	}
 
+	static DataTable^ getRooms() {
+		String^ query = "SELECT rooms.id, rooms.name FROM rooms WHERE rooms.isActive = 'y'";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		DataTable^ result = gcnew DataTable;
+		result->Clear();
+		result->Load(reader);
+		reader->Close();
+		return result;
+	}
+
 	static bool isShowOfTheMovie(int movieId) {
 		String^ query = "SELECT shows.movie_id FROM shows WHERE shows.movie_id = @movieId";
 		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
@@ -357,5 +368,132 @@ public:
 		cmd->Parameters->AddWithValue("@posterFileName", posterFileName);
 		SQLiteDataReader^ reader = cmd->ExecuteReader();
 		reader->Close();
+	}
+
+	static DataTable^ getShows() {
+		String^ query = "SELECT shows.id, movies.name, movies.image, rooms.name, shows.date, shows.language, shows.dimension FROM shows JOIN movies ON shows.movie_id = movies.id JOIN rooms ON shows.room_id = rooms.id ORDER BY shows.date DESC";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		DataTable^ result = gcnew DataTable;
+		result->Clear();
+		result->Load(reader);
+		reader->Close();
+		return result;
+	}
+
+	static bool areTicketsSoldForShow(int showId) {
+		String^ query = "SELECT tickets.show_id FROM tickets WHERE show_id = @showId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@showId", showId);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		if (reader->Read()) {
+			reader->Close();
+			return true;
+		}
+		reader->Close();
+		return false;
+	}
+
+	static void deleteShow(int showId) {
+		String^ query = "DELETE FROM shows WHERE shows.id = @showId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@showId", showId);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		reader->Close();
+	}
+
+	static List<String^>^ getShowDataForEdit(int showId) {
+		String^ query = "SELECT shows.movie_id, shows.room_id, shows.date, shows.language, shows.dimension FROM shows WHERE shows.id = @showId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@showId", showId);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		List<String^>^ result = gcnew List<String^>;
+		if (reader->Read()) {
+			result->Add(reader->GetInt32(0).ToString());
+			result->Add(reader->GetInt32(1).ToString());
+			result->Add(reader->GetDateTime(2).ToString("dd.MM.yyyy HH:mm"));
+			result->Add(reader->GetString(3));
+			result->Add(reader->GetString(4));
+		}
+		reader->Close();
+		return result;
+	}
+
+	static void addShow(int movieId, int roomId, String^ showDate, String^ showLang, String^ showDim) {
+		String^ query = "INSERT INTO shows (movie_id, room_id, date, language, dimension) VALUES (@movieId, @roomId, @showDate, @showLang, @showDim)";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@movieId", movieId);
+		cmd->Parameters->AddWithValue("@roomId", roomId);
+		cmd->Parameters->AddWithValue("@showDate", showDate);
+		cmd->Parameters->AddWithValue("@showLang", showLang);
+		cmd->Parameters->AddWithValue("@showDim", showDim);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		reader->Close();
+	}
+
+	static void updateShow(int showId, int movieId, int roomId, String^ showDate, String^ showLang, String^ showDim) {
+		String^ query = "UPDATE shows SET movie_id = @movieId, room_id = @roomId, date = @showDate, language = @showLang, dimension = @showDim WHERE id = @showId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@showId", showId);
+		cmd->Parameters->AddWithValue("@movieId", movieId);
+		cmd->Parameters->AddWithValue("@roomId", roomId);
+		cmd->Parameters->AddWithValue("@showDate", showDate);
+		cmd->Parameters->AddWithValue("@showLang", showLang);
+		cmd->Parameters->AddWithValue("@showDim", showDim);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		reader->Close();
+	}
+
+	static String^ getRoomName(int roomId) {
+		String^ query = "SELECT rooms.name FROM rooms WHERE rooms.id = @roomId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@roomId", roomId);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		String^ result = "";
+		if (reader->Read()) {
+			result = reader->GetString(0);
+		}
+		reader->Close();
+		return result;
+	}
+
+	static void addRoom(String^ roomName) {
+		String^ query = "INSERT INTO rooms (name, width, height, isActive) VALUES (@roomName, 1, 1, 'y')";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@roomName", roomName);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		reader->Close();
+	}
+
+	static void editRoom(int roomId, String^ roomName) {
+		String^ query = "UPDATE rooms SET name = @roomName WHERE id = @roomId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@roomId", roomId);
+		cmd->Parameters->AddWithValue("@roomName", roomName);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		reader->Close();
+	}
+
+	static void deleteRoom(int roomId) {
+		String^ query = "UPDATE rooms SET isActive = 'n' WHERE id = @roomId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@roomId", roomId);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		reader->Close();
+	}
+
+	static bool willBeAShowInRoom(int roomId) {
+		DateTime now = DateTime::Now;
+		String^ query = "SELECT shows.date FROM shows WHERE shows.room_id = @roomId";
+		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
+		cmd->Parameters->AddWithValue("@roomId", roomId);
+		SQLiteDataReader^ reader = cmd->ExecuteReader();
+		while (reader->Read()) {
+			DateTime showDate = reader->GetDateTime(0);
+			if (DateTime::Compare(now, showDate) < 0) {
+				return true;
+			}
+		}
+		return false;
 	}
 };

@@ -157,7 +157,6 @@ namespace Kino {
 			String^ panelName = "moviePanel" + i.ToString();
 			moviePanel->Name = panelName;
 			moviePanel->Size = System::Drawing::Size(550, 164);
-			//ticketPanel->TabIndex = 0;
 
 			PictureBox^ pictureBox = gcnew PictureBox;
 			moviePanel->Controls->Add(pictureBox);
@@ -165,7 +164,6 @@ namespace Kino {
 			String^ pinctureBoxName = "pinctureBox" + i.ToString();
 			pictureBox->Name = pinctureBoxName;
 			pictureBox->Size = System::Drawing::Size(110, 153);
-			//pictureBox->TabIndex = 0;
 			pictureBox->TabStop = false;
 			pictureBox->SizeMode = PictureBoxSizeMode::StretchImage;
 			String^ imgPath = this->imagesPath + this->dataGridView1[2, i]->Value->ToString();
@@ -179,7 +177,6 @@ namespace Kino {
 			String^ movieNameLabelName = "movieNameLabel" + i.ToString();
 			movieNameLabel->Name = movieNameLabelName;
 			movieNameLabel->Size = System::Drawing::Size(252, 55);
-			//movieNameLabel->TabIndex = 2;
 			String^ movieNameLabelText = this->dataGridView1[1, i]->Value->ToString();
 			movieNameLabel->Text = movieNameLabelText;
 

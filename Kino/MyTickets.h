@@ -190,7 +190,7 @@ namespace Kino {
 			showDateLabel->Size = System::Drawing::Size(252, 55);
 			//showDateLabel->TabIndex = 2;
 			String^ showDateLabelText = this->dataGridView1[2, i]->Value->ToString();
-			showDateLabelText = showDateLabelText->Remove(16); // usuniecie minut i sekund z daty
+			showDateLabelText = showDateLabelText->Remove(16); // usuniecie koncowki minut i sekund z daty
 			showDateLabel->Text = showDateLabelText;
 
 

@@ -248,6 +248,7 @@ namespace Kino {
 			this->addMovieBtn->Enabled = false;
 		}
 	}
+
 	private: System::Void richTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		this->saveChangesBtn->Enabled = true;
 	}
