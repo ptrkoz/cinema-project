@@ -11,9 +11,6 @@ namespace Kino {
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
 
-	/// <summary>
-	/// Podsumowanie informacji o EditShow
-	/// </summary>
 	public ref class EditShow : public System::Windows::Forms::Form
 	{
 	public:
@@ -36,9 +33,6 @@ namespace Kino {
 		}
 
 	protected:
-		/// <summary>
-		/// Wyczyœæ wszystkie u¿ywane zasoby.
-		/// </summary>
 		~EditShow()
 		{
 			if (components)
@@ -72,16 +66,10 @@ namespace Kino {
 
 
 	private:
-		/// <summary>
-		/// Wymagana zmienna projektanta.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Metoda wymagana do obs³ugi projektanta — nie nale¿y modyfikowaæ
-		/// jej zawartoœci w edytorze kodu.
-		/// </summary>
+
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(EditShow::typeid));

@@ -16,9 +16,6 @@ namespace Kino {
 	using namespace System::Data::SQLite;
 	using namespace System::Collections::Generic;
 
-	/// <summary>
-	/// Podsumowanie informacji o PaymentForm
-	/// </summary>
 	public ref class PaymentForm : public System::Windows::Forms::Form
 	{
 	public:
@@ -60,9 +57,6 @@ namespace Kino {
 		}
 
 	protected:
-		/// <summary>
-		/// Wyczyœæ wszystkie u¿ywane zasoby.
-		/// </summary>
 		~PaymentForm()
 		{
 			if (components)
@@ -115,16 +109,10 @@ namespace Kino {
 
 
 	private:
-		/// <summary>
-		/// Wymagana zmienna projektanta.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Metoda wymagana do obs³ugi projektanta — nie nale¿y modyfikowaæ
-		/// jej zawartoœci w edytorze kodu.
-		/// </summary>
+
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PaymentForm::typeid));
@@ -432,15 +420,12 @@ namespace Kino {
 #pragma endregion
 	
 	private: bool isLogged;
-	//private: SqlConnection^ dbConnection = gcnew SqlConnection("Data Source=DESKTOP-7AHQ2NA;Initial Catalog=kino;Integrated Security=True");
 	private: String^ ticketCode;
 
 	private: System::Void PaymentForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->CenterToScreen();
 		this->checkIfLogged();
 		this->updateBuyTicketsBtn();
-		
-		//this->dbConnection->Open();
 
 		this->pictureBox1->ImageLocation = this->imageLocation;
 		this->movieNameLabel->Text = this->movieName;
@@ -568,19 +553,6 @@ namespace Kino {
 	}
 
 	private: int saveTickets(int userId) {
-
-		//String^ query = "INSERT INTO tickets (tickets.account_id, tickets.show_id, tickets.code) OUTPUT inserted.id VALUES (@userId, @showId, @code)";
-		//SqlCommand command(query, this->dbConnection);
-		//command.Parameters->AddWithValue("@userId", userId);
-		//command.Parameters->AddWithValue("@showId", this->showId);
-		//command.Parameters->AddWithValue("@code", ticketCode);
-		//SqlDataReader^ reader = command.ExecuteReader();\
-
-		//rSaveTickets->Read();
-		//int id = rSaveTickets->GetInt32(0);
-		//rSaveTickets->Close();
-		//MessageBox::Show(id.ToString());
-
 		this->ticketCode = generateCode(8);
 		int id = DB::saveTickets(userId, this->showId, this->ticketCode);
 		return id;
@@ -590,24 +562,10 @@ namespace Kino {
 		for (int i = 0; i < this->selectedSeats.Count; i++)
 		{
 			DB::saveTicketsSeat(ticketId, this->selectedSeats[i]);
-			/*String^ query = "INSERT INTO ticketsSeats (ticketsSeats.id, ticketsSeats.seat) VALUES (@ticketId, @seatName)";
-			SqlCommand command(query, this->dbConnection);
-			command.Parameters->AddWithValue("@ticketId", ticketId);
-			command.Parameters->AddWithValue("@seatName", this->selectedSeats[i]);
-			SqlDataReader^ reader = command.ExecuteReader();
-			reader->Close();*/
 		}
 	}
 
 	private: int addLoginToDb(String^ login) {
-		//String^ query = "INSERT INTO accounts (accounts.login, accounts.password, accounts.permissions, accounts.isOpen) OUTPUT inserted.id VALUES (@login, '', 0, 'n')";
-		//SqlCommand command(query, this->dbConnection);
-		//command.Parameters->AddWithValue("@login", login);
-		//SqlDataReader^ reader = command.ExecuteReader();
-		//reader->Read();
-		//int id = reader->GetInt32(0);
-		//reader->Close();
-		//return id;
 		int id = DB::addLoginToDb(login);
 		return id;
 	}

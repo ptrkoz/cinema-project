@@ -11,9 +11,6 @@ namespace Kino {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Podsumowanie informacji o AdminShows
-	/// </summary>
 	public ref class AdminShows : public System::Windows::Forms::Form
 	{
 	public:
@@ -28,9 +25,6 @@ namespace Kino {
 			this->prevForm = prevForm;
 		}
 	protected:
-		/// <summary>
-		/// Wyczyœæ wszystkie u¿ywane zasoby.
-		/// </summary>
 		~AdminShows()
 		{
 			if (components)
@@ -47,16 +41,10 @@ namespace Kino {
 	private: System::Windows::Forms::Button^ addShowBtn;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
 	private:
-		/// <summary>
-		/// Wymagana zmienna projektanta.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Metoda wymagana do obs³ugi projektanta — nie nale¿y modyfikowaæ
-		/// jej zawartoœci w edytorze kodu.
-		/// </summary>
+
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AdminShows::typeid));

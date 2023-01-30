@@ -9,9 +9,6 @@ namespace Kino {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Podsumowanie informacji o LoginQ
-	/// </summary>
 	public ref class LoginQ : public System::Windows::Forms::Form
 	{
 	public:
@@ -21,9 +18,6 @@ namespace Kino {
 		}
 		int choice = 0;
 	protected:
-		/// <summary>
-		/// Wyczyœæ wszystkie u¿ywane zasoby.
-		/// </summary>
 		~LoginQ()
 		{
 			if (components)
@@ -43,16 +37,11 @@ namespace Kino {
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
-		/// <summary>
-		/// Wymagana zmienna projektanta.
-		/// </summary>
+
 
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Metoda wymagana do obs³ugi projektanta — nie nale¿y modyfikowaæ
-		/// jej zawartoœci w edytorze kodu.
-		/// </summary>
+
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());

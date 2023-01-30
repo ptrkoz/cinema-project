@@ -11,12 +11,7 @@ namespace Kino {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Net::Mail;
-	//using namespace System::Data::SqlClient;
-	//using namespace System::Data::Odbc;
 
-	/// <summary>
-	/// Podsumowanie informacji o LoginForm
-	/// </summary>
 	public ref class LoginForm : public System::Windows::Forms::Form
 	{
 	public:
@@ -38,9 +33,6 @@ namespace Kino {
 			this->user = user;
 		}
 	protected:
-		/// <summary>
-		/// Wyczyœæ wszystkie u¿ywane zasoby.
-		/// </summary>
 		~LoginForm()
 		{
 			if (components)
@@ -65,16 +57,10 @@ namespace Kino {
 	protected:
 
 	private:
-		/// <summary>
-		/// Wymagana zmienna projektanta.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Metoda wymagana do obs³ugi projektanta — nie nale¿y modyfikowaæ
-		/// jej zawartoœci w edytorze kodu.
-		/// </summary>
+
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LoginForm::typeid));
@@ -193,14 +179,8 @@ namespace Kino {
 		}
 #pragma endregion
 
-	//private: static User^ user = nullptr;
-
-	/*public: static User^ getUser() {
-		return LoginForm::user;
-	}*/
-
 	private: System::Void onFormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
-	//	Application::Exit();
+		//	Application::Exit();
 	}
 
 	private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e) {

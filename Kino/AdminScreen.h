@@ -13,9 +13,6 @@ namespace Kino {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Podsumowanie informacji o AdminScreen
-	/// </summary>
 	public ref class AdminScreen : public System::Windows::Forms::Form
 	{
 	public:
@@ -30,9 +27,6 @@ namespace Kino {
 			this->user = user;
 		}
 	protected:
-		/// <summary>
-		/// Wyczyœæ wszystkie u¿ywane zasoby.
-		/// </summary>
 		~AdminScreen()
 		{
 			if (components)
@@ -52,16 +46,10 @@ namespace Kino {
 
 
 	private:
-		/// <summary>
-		/// Wymagana zmienna projektanta.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Metoda wymagana do obs³ugi projektanta — nie nale¿y modyfikowaæ
-		/// jej zawartoœci w edytorze kodu.
-		/// </summary>
+
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AdminScreen::typeid));

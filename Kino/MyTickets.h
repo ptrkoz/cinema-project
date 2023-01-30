@@ -12,9 +12,6 @@ namespace Kino {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Podsumowanie informacji o MyTickets
-	/// </summary>
 	public ref class MyTickets : public System::Windows::Forms::Form
 	{
 	public:
@@ -29,9 +26,6 @@ namespace Kino {
 			this->user = user;
 		}
 	protected:
-		/// <summary>
-		/// Wyczyœæ wszystkie u¿ywane zasoby.
-		/// </summary>
 		~MyTickets()
 		{
 			if (components)
@@ -53,16 +47,10 @@ namespace Kino {
 	protected:
 
 	private:
-		/// <summary>
-		/// Wymagana zmienna projektanta.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Metoda wymagana do obs³ugi projektanta — nie nale¿y modyfikowaæ
-		/// jej zawartoœci w edytorze kodu.
-		/// </summary>
+
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyTickets::typeid));
@@ -162,7 +150,6 @@ namespace Kino {
 			String^ panelName = "ticketPanel" + i.ToString();
 			ticketPanel->Name = panelName;
 			ticketPanel->Size = System::Drawing::Size(550, 164);
-			//ticketPanel->TabIndex = 0;
 
 			PictureBox^ pictureBox = gcnew PictureBox;
 			ticketPanel->Controls->Add(pictureBox);
@@ -170,7 +157,6 @@ namespace Kino {
 			String^ pinctureBoxName = "pinctureBox" + i.ToString();
 			pictureBox->Name = pinctureBoxName;
 			pictureBox->Size = System::Drawing::Size(110, 153);
-			//pictureBox->TabIndex = 0;
 			pictureBox->TabStop = false;
 			pictureBox->SizeMode = PictureBoxSizeMode::StretchImage;
 			String ^ imgPath = this->imagesPath + this->dataGridView1[0, i]->Value->ToString();
@@ -184,7 +170,6 @@ namespace Kino {
 			String^ movieNameLabelName = "movieNameLabel" + i.ToString();
 			movieNameLabel->Name = movieNameLabelName;
 			movieNameLabel->Size = System::Drawing::Size(252, 55);
-			//movieNameLabel->TabIndex = 2;
 			String^ movieNameLabelText = this->dataGridView1[1, i]->Value->ToString();
 			movieNameLabel->Text = movieNameLabelText;
 
@@ -196,7 +181,6 @@ namespace Kino {
 			String^ showDateLabelName = "showDateLabel" + i.ToString();
 			showDateLabel->Name = showDateLabelName;
 			showDateLabel->Size = System::Drawing::Size(252, 55);
-			//showDateLabel->TabIndex = 2;
 			String^ showDateLabelText = this->dataGridView1[2, i]->Value->ToString();
 			showDateLabelText = showDateLabelText->Remove(16); // usuniecie koncowki minut i sekund z daty
 			showDateLabel->Text = showDateLabelText;
@@ -210,7 +194,6 @@ namespace Kino {
 			String^ ticketNumberLabelName = "ticketNumberLabel" + i.ToString();
 			ticketNumberLabel->Name = ticketNumberLabelName;
 			ticketNumberLabel->Size = System::Drawing::Size(252, 55);
-			//ticketNumberLabel->TabIndex = 2;
 			String^ ticketNumberLabelText = "Iloœæ biletów: " + this->dataGridView1[4, i]->Value->ToString();
 			ticketNumberLabel->Text = ticketNumberLabelText;
 

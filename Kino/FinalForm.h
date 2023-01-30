@@ -14,9 +14,6 @@ namespace Kino {
 	using namespace System::IO;
 	using namespace ZXing;
 
-	/// <summary>
-	/// Podsumowanie informacji o FinalForm
-	/// </summary>
 	public ref class FinalForm : public System::Windows::Forms::Form
 	{
 	public:
@@ -56,9 +53,6 @@ namespace Kino {
 			this->user = user;
 		}
 	protected:
-		/// <summary>
-		/// Wyczyœæ wszystkie u¿ywane zasoby.
-		/// </summary>
 		~FinalForm()
 		{
 			if (components)
@@ -68,9 +62,6 @@ namespace Kino {
 		}
 
 	private:
-		/// <summary>
-		/// Wymagana zmienna projektanta.
-		/// </summary>
 	private: Form^ prevForm = nullptr;
 	private: String^ imageLocation;
 	private: String^ movieName;
@@ -110,10 +101,7 @@ namespace Kino {
 		   System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Metoda wymagana do obs³ugi projektanta — nie nale¿y modyfikowaæ
-		/// jej zawartoœci w edytorze kodu.
-		/// </summary>
+
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(FinalForm::typeid));
@@ -386,16 +374,6 @@ namespace Kino {
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Restart();
-		
-		//if (this->user == nullptr) {
-		//	//StartScreen^ startScreen = gcnew StartScreen;
-		//	this->Hide();
-		//	//startScreen->Show();
-		//} else {
-		//	LoggedScreen ^ loggedScreen = gcnew LoggedScreen(this, this->user);
-		//	this->Hide();
-		//	loggedScreen->Show();
-		//}
 	}
 
 	private: System::Void saveQrBtn_Click(System::Object^ sender, System::EventArgs^ e) {

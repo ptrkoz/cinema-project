@@ -12,13 +12,8 @@ namespace Kino {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Data::SQLite;
-	//using namespace System::Data::SqlClient;
-	//using namespace System::Data::Odbc;
 	using namespace System::Collections::Generic;
 
-	/// <summary>
-	/// Podsumowanie informacji o PickSeat
-	/// </summary>
 	public ref class PickSeat : public System::Windows::Forms::Form
 	{
 	public:
@@ -43,9 +38,6 @@ namespace Kino {
 		}
 
 	protected:
-		/// <summary>
-		/// Wyczyœæ wszystkie u¿ywane zasoby.
-		/// </summary>
 		~PickSeat()
 		{
 			if (components)
@@ -83,16 +75,10 @@ namespace Kino {
 	protected:
 
 	private:
-		/// <summary>
-		/// Wymagana zmienna projektanta.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Metoda wymagana do obs³ugi projektanta — nie nale¿y modyfikowaæ
-		/// jej zawartoœci w edytorze kodu.
-		/// </summary>
+
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PickSeat::typeid));
@@ -376,7 +362,6 @@ namespace Kino {
 #pragma endregion
 
 	private: String^ imagesPath = "\images/posters/";
-	//private: SqlConnection^ dbConnection = gcnew SqlConnection("Data Source=DESKTOP-7AHQ2NA;Initial Catalog=kino;Integrated Security=True");
 	private: String^ imageLocation;
 	private: String^ movieName;
 	private: String^ showDate;
@@ -452,7 +437,6 @@ namespace Kino {
 				}
 				seatBtn->FlatAppearance->BorderSize = 0;
 				seatBtn->FlatStyle = FlatStyle::Flat;
-				//seatBtn->UseVisualStyleBackColor = false;
 				
 				seatBtn->Click += gcnew System::EventHandler(this, &PickSeat::seatHandler);
 

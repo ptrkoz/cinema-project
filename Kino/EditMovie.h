@@ -11,9 +11,6 @@ namespace Kino {
 	using namespace System::Drawing;
 	using namespace System::Collections::Generic;
 	
-	/// <summary>
-	/// Podsumowanie informacji o EditMovie
-	/// </summary>
 	public ref class EditMovie : public System::Windows::Forms::Form
 	{
 	public:
@@ -33,9 +30,6 @@ namespace Kino {
 			this->movieId = movieId;
 		}
 	protected:
-		/// <summary>
-		/// Wyczyœæ wszystkie u¿ywane zasoby.
-		/// </summary>
 		~EditMovie()
 		{
 			if (components)
@@ -57,16 +51,10 @@ namespace Kino {
 	private: System::Windows::Forms::Button^ saveChangesBtn;
 	private: System::Windows::Forms::Button^ addMovieBtn;
 	private:
-		/// <summary>
-		/// Wymagana zmienna projektanta.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Metoda wymagana do obs³ugi projektanta — nie nale¿y modyfikowaæ
-		/// jej zawartoœci w edytorze kodu.
-		/// </summary>
+
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(EditMovie::typeid));

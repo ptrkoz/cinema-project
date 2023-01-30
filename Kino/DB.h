@@ -25,15 +25,6 @@ public:
 		con->Close();
 	}
 
-	//static SQLiteDataReader^ getMovieList(DateTime sTime, DateTime eTime) {
-	//	String^ query = "SELECT * FROM movies WHERE movies.id IN (SELECT movie_id FROM shows WHERE date BETWEEN @sTime AND @eTime)";
-	//	SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
-	//	cmd->Parameters->AddWithValue("@sTime", sTime);
-	//	cmd->Parameters->AddWithValue("@eTime", eTime);
-	//	SQLiteDataReader^ reader = cmd->ExecuteReader();
-	//	return reader;
-	//}
-
 	static DataTable^ getMovieListTable(DateTime sTime, DateTime eTime)
 	{
 		String^ query = "SELECT * FROM movies WHERE movies.id IN (SELECT movie_id FROM shows WHERE date BETWEEN @sTime AND @eTime)";
@@ -41,9 +32,6 @@ public:
 		cmd->Parameters->AddWithValue("@sTime", sTime);
 		cmd->Parameters->AddWithValue("@eTime", eTime);
 		SQLiteDataReader^ reader = cmd->ExecuteReader();
-		//while (reader->Read()) {
-		//	MessageBox::Show(reader->GetString(1));
-		//}
 		DataTable^ result = gcnew DataTable;
 		result->Clear();
 		result->Load(reader);
@@ -51,14 +39,6 @@ public:
 		return result;
 	}
 
-	//static SQLiteDataReader^ getMovieData(String^ mId) {
-	//	String^ query = "SELECT * FROM movies WHERE movies.id = @mId";
-	//	SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
-	//	cmd->Parameters->AddWithValue("@mId", mId);
-	//	SQLiteDataReader^ reader = cmd->ExecuteReader();
-	//	return reader;
-	//}	
-	
 	static List<String^>^ getMovieData(String^ mId) {
 		String^ query = "SELECT movies.name, movies.description, movies.image FROM movies WHERE movies.id = @mId";
 		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
@@ -71,16 +51,6 @@ public:
 		reader->Close();
 		return movies;
 	}
-
-	//static SQLiteDataReader^ getShowsForMovie(String^ mId, DateTime sTime, DateTime eTime) {
-	//	String^ query = "SELECT shows.id, shows.date, shows.language, shows.dimension FROM shows WHERE shows.movie_id = @mId AND shows.date BETWEEN @sTime AND @eTime ORDER BY shows.date ASC";
-	//	SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
-	//	cmd->Parameters->AddWithValue("@mId", mId);
-	//	cmd->Parameters->AddWithValue("@sTime", sTime);
-	//	cmd->Parameters->AddWithValue("@eTime", eTime);
-	//	SQLiteDataReader^ reader = cmd->ExecuteReader();
-	//	return reader;
-	//}
 
 	static DataTable^ getShowsForMovie(String^ mId, DateTime sTime, DateTime eTime) {
 		String^ query = "SELECT shows.id, shows.date, shows.language, shows.dimension FROM shows WHERE shows.movie_id = @mId AND shows.date BETWEEN @sTime AND @eTime ORDER BY shows.date ASC";
@@ -95,14 +65,6 @@ public:
 		reader->Close();
 		return result;
 	}
-
-	//static SQLiteDataReader^ getShowData(String^ sId) {
-	//	String^ query = "SELECT movies.image, movies.name AS 'movie', shows.date, shows.dimension, shows.language, rooms.name AS 'room' FROM shows JOIN movies ON shows.movie_id = movies.id JOIN rooms ON shows.room_id = rooms.id WHERE shows.id = @sId";
-	//	SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
-	//	cmd->Parameters->AddWithValue("@sId", sId);
-	//	SQLiteDataReader^ reader = cmd->ExecuteReader();
-	//	return reader;
-	//}
 
 	static List<String^>^ getShowData(String^ sId) {
 		String^ query = "SELECT movies.image, movies.name AS 'movie', shows.date, shows.dimension, shows.language, rooms.name AS 'room' FROM shows JOIN movies ON shows.movie_id = movies.id JOIN rooms ON shows.room_id = rooms.id WHERE shows.id = @sId";
@@ -121,15 +83,6 @@ public:
 		return result;
 	}
 
-	//static SQLiteDataReader^ checkSeat(String^ showId, String^ seat) {
-	//	String^ query = "SELECT ticketsSeats.seat FROM ticketsSeats JOIN tickets ON ticketsSeats.id = tickets.id JOIN shows ON tickets.show_id = shows.id WHERE shows.id = @showId AND ticketsSeats.seat = @seat";
-	//	SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
-	//	cmd->Parameters->AddWithValue("@showId", showId);
-	//	cmd->Parameters->AddWithValue("@seat", seat);
-	//	SQLiteDataReader^ reader = cmd->ExecuteReader();
-	//	return reader;
-	//}
-
 	static bool checkSeat(String^ showId, String^ seat) {
 		String^ query = "SELECT ticketsSeats.seat FROM ticketsSeats JOIN tickets ON ticketsSeats.id = tickets.id JOIN shows ON tickets.show_id = shows.id WHERE shows.id = @showId AND ticketsSeats.seat = @seat";
 		SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
@@ -143,14 +96,6 @@ public:
 		reader->Close();
 		return true;
 	}
-
-	//static SQLiteDataReader^ getUserIdByLogin(String^ login) {
-	//	String^ query = "SELECT id FROM accounts WHERE accounts.login = @login";
-	//	SQLiteCommand^ cmd = gcnew SQLiteCommand(query, con);
-	//	cmd->Parameters->AddWithValue("@login", login);
-	//	SQLiteDataReader^ reader = cmd->ExecuteReader();
-	//	return reader;
-	//}
 
 	static int getUserIdByLogin(String^ login) {
 		String^ query = "SELECT id FROM accounts WHERE accounts.login = @login";
