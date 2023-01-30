@@ -62,6 +62,7 @@ namespace Kino {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(EditRoom::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->saveChangesBtn = (gcnew System::Windows::Forms::Button());
@@ -72,11 +73,11 @@ namespace Kino {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Corbel", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(12, 44);
+			this->label1->Location = System::Drawing::Point(16, 42);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(135, 29);
+			this->label1->Size = System::Drawing::Size(129, 29);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Nazwa sali:";
 			// 
@@ -104,7 +105,8 @@ namespace Kino {
 			// 
 			// goBackBtn
 			// 
-			this->goBackBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->goBackBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->goBackBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
 			this->goBackBtn->Location = System::Drawing::Point(174, 107);
 			this->goBackBtn->Name = L"goBackBtn";
@@ -116,7 +118,8 @@ namespace Kino {
 			// 
 			// addRoomBtn
 			// 
-			this->addRoomBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->addRoomBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->addRoomBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
 			this->addRoomBtn->Location = System::Drawing::Point(50, 107);
 			this->addRoomBtn->Name = L"addRoomBtn";
@@ -137,8 +140,9 @@ namespace Kino {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"EditRoom";
-			this->Text = L"EditRoom";
+			this->Text = L"Zarz¹dzaj salami - kino";
 			this->Load += gcnew System::EventHandler(this, &EditRoom::EditRoom_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

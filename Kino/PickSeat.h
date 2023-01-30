@@ -95,6 +95,7 @@ namespace Kino {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PickSeat::typeid));
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -119,7 +120,7 @@ namespace Kino {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(12, 46);
+			this->pictureBox1->Location = System::Drawing::Point(192, 48);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(141, 210);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -129,45 +130,55 @@ namespace Kino {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(159, 55);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Corbel", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label1->Location = System::Drawing::Point(339, 67);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(35, 13);
+			this->label1->Size = System::Drawing::Size(66, 26);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"label1";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(160, 81);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label2->Location = System::Drawing::Point(340, 114);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(35, 13);
+			this->label2->Size = System::Drawing::Size(51, 20);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"label2";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(159, 106);
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label3->Location = System::Drawing::Point(340, 154);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(35, 13);
+			this->label3->Size = System::Drawing::Size(51, 20);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"label3";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(159, 129);
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label4->Location = System::Drawing::Point(340, 194);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(35, 13);
+			this->label4->Size = System::Drawing::Size(51, 20);
 			this->label4->TabIndex = 4;
 			this->label4->Text = L"label4";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(160, 750);
+			this->label5->Font = (gcnew System::Drawing::Font(L"Corbel", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label5->Location = System::Drawing::Point(19, 765);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(91, 13);
+			this->label5->Size = System::Drawing::Size(158, 23);
 			this->label5->TabIndex = 5;
 			this->label5->Text = L"Wybrane miejsca:";
 			// 
@@ -184,28 +195,38 @@ namespace Kino {
 			// 
 			// goBackBtn
 			// 
+			this->goBackBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->goBackBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->goBackBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"goBackBtn.Image")));
+			this->goBackBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->goBackBtn->Location = System::Drawing::Point(15, 14);
 			this->goBackBtn->Name = L"goBackBtn";
-			this->goBackBtn->Size = System::Drawing::Size(75, 23);
+			this->goBackBtn->Size = System::Drawing::Size(141, 62);
 			this->goBackBtn->TabIndex = 7;
-			this->goBackBtn->Text = L"<- powrót";
+			this->goBackBtn->Text = L"  powrót";
 			this->goBackBtn->UseVisualStyleBackColor = true;
 			this->goBackBtn->Click += gcnew System::EventHandler(this, &PickSeat::goBackBtn_Click);
 			// 
 			// selectedSeatsLabel
 			// 
 			this->selectedSeatsLabel->AutoSize = true;
-			this->selectedSeatsLabel->Location = System::Drawing::Point(257, 750);
+			this->selectedSeatsLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->selectedSeatsLabel->Location = System::Drawing::Point(183, 767);
 			this->selectedSeatsLabel->Name = L"selectedSeatsLabel";
-			this->selectedSeatsLabel->Size = System::Drawing::Size(0, 13);
+			this->selectedSeatsLabel->Size = System::Drawing::Size(111, 20);
 			this->selectedSeatsLabel->TabIndex = 8;
+			this->selectedSeatsLabel->Text = L"selectedSeats";
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(189, 764);
+			this->label7->Font = (gcnew System::Drawing::Font(L"Corbel", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label7->Location = System::Drawing::Point(27, 800);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(62, 13);
+			this->label7->Size = System::Drawing::Size(150, 33);
 			this->label7->TabIndex = 9;
 			this->label7->Text = L"Do zap³aty:";
 			this->label7->Click += gcnew System::EventHandler(this, &PickSeat::label7_Click);
@@ -213,29 +234,39 @@ namespace Kino {
 			// ticketPriceLabel
 			// 
 			this->ticketPriceLabel->AutoSize = true;
-			this->ticketPriceLabel->Location = System::Drawing::Point(257, 764);
+			this->ticketPriceLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+			this->ticketPriceLabel->Location = System::Drawing::Point(186, 800);
 			this->ticketPriceLabel->Name = L"ticketPriceLabel";
-			this->ticketPriceLabel->Size = System::Drawing::Size(25, 13);
+			this->ticketPriceLabel->Size = System::Drawing::Size(56, 31);
 			this->ticketPriceLabel->TabIndex = 10;
 			this->ticketPriceLabel->Text = L"0 z³";
+			this->ticketPriceLabel->Click += gcnew System::EventHandler(this, &PickSeat::ticketPriceLabel_Click);
 			// 
 			// SummaryBtn
 			// 
 			this->SummaryBtn->Enabled = false;
-			this->SummaryBtn->Location = System::Drawing::Point(490, 742);
+			this->SummaryBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->SummaryBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->SummaryBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"SummaryBtn.Image")));
+			this->SummaryBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->SummaryBtn->Location = System::Drawing::Point(411, 800);
 			this->SummaryBtn->Name = L"SummaryBtn";
-			this->SummaryBtn->Size = System::Drawing::Size(122, 35);
+			this->SummaryBtn->Size = System::Drawing::Size(207, 61);
 			this->SummaryBtn->TabIndex = 11;
-			this->SummaryBtn->Text = L"Podsumowanie ->";
+			this->SummaryBtn->Text = L"Podsumowanie";
 			this->SummaryBtn->UseVisualStyleBackColor = true;
 			this->SummaryBtn->Click += gcnew System::EventHandler(this, &PickSeat::SummaryBtn_Click);
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(12, 673);
+			this->label8->Font = (gcnew System::Drawing::Font(L"Corbel", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label8->Location = System::Drawing::Point(17, 662);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(52, 13);
+			this->label8->Size = System::Drawing::Size(108, 29);
 			this->label8->TabIndex = 12;
 			this->label8->Text = L"Legenda:";
 			// 
@@ -254,9 +285,11 @@ namespace Kino {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(64, 710);
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label9->Location = System::Drawing::Point(63, 707);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(79, 13);
+			this->label9->Size = System::Drawing::Size(116, 20);
 			this->label9->TabIndex = 14;
 			this->label9->Text = L"- miejsce wolne";
 			// 
@@ -266,7 +299,7 @@ namespace Kino {
 			this->button1->Enabled = false;
 			this->button1->FlatAppearance->BorderSize = 0;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Location = System::Drawing::Point(192, 699);
+			this->button1->Location = System::Drawing::Point(216, 699);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(35, 35);
 			this->button1->TabIndex = 15;
@@ -275,11 +308,13 @@ namespace Kino {
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(233, 710);
+			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label10->Location = System::Drawing::Point(257, 707);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(79, 13);
+			this->label10->Size = System::Drawing::Size(118, 20);
 			this->label10->TabIndex = 16;
-			this->label10->Text = L"- mijesce zajête";
+			this->label10->Text = L"- miejsce zajête";
 			// 
 			// button2
 			// 
@@ -287,7 +322,7 @@ namespace Kino {
 			this->button2->Enabled = false;
 			this->button2->FlatAppearance->BorderSize = 0;
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Location = System::Drawing::Point(372, 699);
+			this->button2->Location = System::Drawing::Point(422, 699);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(35, 35);
 			this->button2->TabIndex = 17;
@@ -296,9 +331,11 @@ namespace Kino {
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(413, 710);
+			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label11->Location = System::Drawing::Point(465, 708);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(91, 13);
+			this->label11->Size = System::Drawing::Size(134, 20);
 			this->label11->TabIndex = 16;
 			this->label11->Text = L"- wybrane miejsce";
 			// 
@@ -306,7 +343,7 @@ namespace Kino {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(630, 788);
+			this->ClientSize = System::Drawing::Size(630, 873);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label10);
@@ -326,8 +363,9 @@ namespace Kino {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"PickSeat";
-			this->Text = L"PickSeat";
+			this->Text = L"Wybierz miejsce - Kino";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &PickSeat::onFormClosed);
 			this->Load += gcnew System::EventHandler(this, &PickSeat::PickSeat_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -350,6 +388,7 @@ namespace Kino {
 		this->loadShowData(this->showId);
 		this->displayShowData();
 		this->displaySeats();
+		this->selectedSeatsLabel->Text = "";
 	}
 
 	private: System::Void onFormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e) {
@@ -490,6 +529,9 @@ namespace Kino {
 		PaymentForm^ paymentForm = gcnew PaymentForm(this, this->imageLocation, this->movieName, this->showDate, this->showVersion, this->showRoom, this->selectedSeats, this->showId, this->user);
 		this->Hide();
 		paymentForm->Show();
+	}
+
+	private: System::Void ticketPriceLabel_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 };
 }

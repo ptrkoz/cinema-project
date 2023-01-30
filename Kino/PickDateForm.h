@@ -91,6 +91,7 @@ namespace Kino {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PickDateForm::typeid));
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->nextDayBtn = (gcnew System::Windows::Forms::Button());
 			this->prevDayBtn = (gcnew System::Windows::Forms::Button());
@@ -116,31 +117,35 @@ namespace Kino {
 			// 
 			// dateTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(202, 28);
+			this->dateTimePicker1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->dateTimePicker1->Location = System::Drawing::Point(345, 37);
 			this->dateTimePicker1->MaxDate = System::DateTime(2100, 12, 31, 0, 0, 0, 0);
 			this->dateTimePicker1->MinDate = System::DateTime(2000, 1, 1, 0, 0, 0, 0);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(200, 20);
+			this->dateTimePicker1->Size = System::Drawing::Size(279, 26);
 			this->dateTimePicker1->TabIndex = 0;
 			this->dateTimePicker1->ValueChanged += gcnew System::EventHandler(this, &PickDateForm::dateTimePicker1_ValueChanged);
 			// 
 			// nextDayBtn
 			// 
-			this->nextDayBtn->Location = System::Drawing::Point(411, 26);
+			this->nextDayBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->nextDayBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"nextDayBtn.Image")));
+			this->nextDayBtn->Location = System::Drawing::Point(641, 30);
 			this->nextDayBtn->Name = L"nextDayBtn";
-			this->nextDayBtn->Size = System::Drawing::Size(28, 23);
+			this->nextDayBtn->Size = System::Drawing::Size(60, 38);
 			this->nextDayBtn->TabIndex = 1;
-			this->nextDayBtn->Text = L">";
 			this->nextDayBtn->UseVisualStyleBackColor = true;
 			this->nextDayBtn->Click += gcnew System::EventHandler(this, &PickDateForm::nextDayBtn_Click);
 			// 
 			// prevDayBtn
 			// 
-			this->prevDayBtn->Location = System::Drawing::Point(170, 26);
+			this->prevDayBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->prevDayBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"prevDayBtn.Image")));
+			this->prevDayBtn->Location = System::Drawing::Point(270, 30);
 			this->prevDayBtn->Name = L"prevDayBtn";
-			this->prevDayBtn->Size = System::Drawing::Size(26, 23);
+			this->prevDayBtn->Size = System::Drawing::Size(60, 38);
 			this->prevDayBtn->TabIndex = 2;
-			this->prevDayBtn->Text = L"<";
 			this->prevDayBtn->UseVisualStyleBackColor = true;
 			this->prevDayBtn->Click += gcnew System::EventHandler(this, &PickDateForm::prevDayBtn_Click);
 			// 
@@ -148,9 +153,11 @@ namespace Kino {
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->label1->Location = System::Drawing::Point(59, 291);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Corbel", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label1->Location = System::Drawing::Point(108, 447);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(35, 13);
+			this->label1->Size = System::Drawing::Size(50, 19);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"label1";
 			this->label1->Click += gcnew System::EventHandler(this, &PickDateForm::label1_Click);
@@ -158,9 +165,9 @@ namespace Kino {
 			// pictureBox1
 			// 
 			this->pictureBox1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox1->Location = System::Drawing::Point(62, 73);
+			this->pictureBox1->Location = System::Drawing::Point(112, 115);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(140, 212);
+			this->pictureBox1->Size = System::Drawing::Size(210, 318);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 4;
 			this->pictureBox1->TabStop = false;
@@ -169,9 +176,9 @@ namespace Kino {
 			// pictureBox2
 			// 
 			this->pictureBox2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox2->Location = System::Drawing::Point(243, 73);
+			this->pictureBox2->Location = System::Drawing::Point(364, 115);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(140, 212);
+			this->pictureBox2->Size = System::Drawing::Size(210, 318);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox2->TabIndex = 5;
 			this->pictureBox2->TabStop = false;
@@ -181,9 +188,11 @@ namespace Kino {
 			// 
 			this->label2->AutoSize = true;
 			this->label2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->label2->Location = System::Drawing::Point(240, 291);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Corbel", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label2->Location = System::Drawing::Point(360, 447);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(35, 13);
+			this->label2->Size = System::Drawing::Size(50, 19);
 			this->label2->TabIndex = 6;
 			this->label2->Text = L"label2";
 			this->label2->Click += gcnew System::EventHandler(this, &PickDateForm::label2_Click);
@@ -191,7 +200,7 @@ namespace Kino {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(535, 2);
+			this->dataGridView1->Location = System::Drawing::Point(869, 13);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
 			this->dataGridView1->Size = System::Drawing::Size(90, 82);
@@ -202,9 +211,9 @@ namespace Kino {
 			// pictureBox3
 			// 
 			this->pictureBox3->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox3->Location = System::Drawing::Point(428, 73);
+			this->pictureBox3->Location = System::Drawing::Point(618, 115);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(140, 212);
+			this->pictureBox3->Size = System::Drawing::Size(210, 318);
 			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox3->TabIndex = 8;
 			this->pictureBox3->TabStop = false;
@@ -214,37 +223,43 @@ namespace Kino {
 			// 
 			this->label3->AutoSize = true;
 			this->label3->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->label3->Location = System::Drawing::Point(425, 291);
+			this->label3->Font = (gcnew System::Drawing::Font(L"Corbel", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label3->Location = System::Drawing::Point(614, 447);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(35, 13);
+			this->label3->Size = System::Drawing::Size(50, 19);
 			this->label3->TabIndex = 9;
 			this->label3->Text = L"label3";
 			this->label3->Click += gcnew System::EventHandler(this, &PickDateForm::label3_Click);
 			// 
 			// prevMoviesBtn
 			// 
-			this->prevMoviesBtn->Location = System::Drawing::Point(12, 175);
+			this->prevMoviesBtn->FlatAppearance->BorderSize = 0;
+			this->prevMoviesBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->prevMoviesBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"prevMoviesBtn.Image")));
+			this->prevMoviesBtn->Location = System::Drawing::Point(31, 261);
 			this->prevMoviesBtn->Name = L"prevMoviesBtn";
-			this->prevMoviesBtn->Size = System::Drawing::Size(33, 23);
+			this->prevMoviesBtn->Size = System::Drawing::Size(60, 38);
 			this->prevMoviesBtn->TabIndex = 10;
-			this->prevMoviesBtn->Text = L"<-";
 			this->prevMoviesBtn->UseVisualStyleBackColor = true;
 			this->prevMoviesBtn->Click += gcnew System::EventHandler(this, &PickDateForm::prevMoviesBtn_Click);
 			// 
 			// nextMoviesBtn
 			// 
-			this->nextMoviesBtn->Location = System::Drawing::Point(574, 175);
+			this->nextMoviesBtn->FlatAppearance->BorderSize = 0;
+			this->nextMoviesBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->nextMoviesBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"nextMoviesBtn.Image")));
+			this->nextMoviesBtn->Location = System::Drawing::Point(851, 261);
 			this->nextMoviesBtn->Name = L"nextMoviesBtn";
-			this->nextMoviesBtn->Size = System::Drawing::Size(33, 23);
+			this->nextMoviesBtn->Size = System::Drawing::Size(60, 38);
 			this->nextMoviesBtn->TabIndex = 11;
-			this->nextMoviesBtn->Text = L"->";
 			this->nextMoviesBtn->UseVisualStyleBackColor = true;
 			this->nextMoviesBtn->Click += gcnew System::EventHandler(this, &PickDateForm::nextMoviesBtn_Click);
 			// 
 			// MovieID1
 			// 
 			this->MovieID1->AutoSize = true;
-			this->MovieID1->Location = System::Drawing::Point(96, 330);
+			this->MovieID1->Location = System::Drawing::Point(166, 513);
 			this->MovieID1->Name = L"MovieID1";
 			this->MovieID1->Size = System::Drawing::Size(53, 13);
 			this->MovieID1->TabIndex = 12;
@@ -254,7 +269,7 @@ namespace Kino {
 			// MovieID2
 			// 
 			this->MovieID2->AutoSize = true;
-			this->MovieID2->Location = System::Drawing::Point(283, 330);
+			this->MovieID2->Location = System::Drawing::Point(439, 513);
 			this->MovieID2->Name = L"MovieID2";
 			this->MovieID2->Size = System::Drawing::Size(53, 13);
 			this->MovieID2->TabIndex = 13;
@@ -264,7 +279,7 @@ namespace Kino {
 			// MovieID3
 			// 
 			this->MovieID3->AutoSize = true;
-			this->MovieID3->Location = System::Drawing::Point(475, 330);
+			this->MovieID3->Location = System::Drawing::Point(701, 513);
 			this->MovieID3->Name = L"MovieID3";
 			this->MovieID3->Size = System::Drawing::Size(53, 13);
 			this->MovieID3->TabIndex = 14;
@@ -274,21 +289,26 @@ namespace Kino {
 			// noShowsLabel
 			// 
 			this->noShowsLabel->AutoSize = true;
-			this->noShowsLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->noShowsLabel->Font = (gcnew System::Drawing::Font(L"Corbel", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->noShowsLabel->Location = System::Drawing::Point(57, 166);
+			this->noShowsLabel->Location = System::Drawing::Point(125, 246);
 			this->noShowsLabel->Name = L"noShowsLabel";
-			this->noShowsLabel->Size = System::Drawing::Size(512, 39);
+			this->noShowsLabel->Size = System::Drawing::Size(693, 59);
 			this->noShowsLabel->TabIndex = 15;
 			this->noShowsLabel->Text = L"Brak seansów w wybranym dniu";
 			// 
 			// goBackBtn
 			// 
+			this->goBackBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->goBackBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->goBackBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"goBackBtn.Image")));
+			this->goBackBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->goBackBtn->Location = System::Drawing::Point(12, 12);
 			this->goBackBtn->Name = L"goBackBtn";
-			this->goBackBtn->Size = System::Drawing::Size(75, 23);
+			this->goBackBtn->Size = System::Drawing::Size(146, 63);
 			this->goBackBtn->TabIndex = 16;
-			this->goBackBtn->Text = L"<- powrót";
+			this->goBackBtn->Text = L"    powrót";
 			this->goBackBtn->UseVisualStyleBackColor = true;
 			this->goBackBtn->Click += gcnew System::EventHandler(this, &PickDateForm::goBackBtn_Click);
 			// 
@@ -296,7 +316,7 @@ namespace Kino {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(628, 364);
+			this->ClientSize = System::Drawing::Size(949, 543);
 			this->Controls->Add(this->goBackBtn);
 			this->Controls->Add(this->noShowsLabel);
 			this->Controls->Add(this->MovieID3);
@@ -314,8 +334,10 @@ namespace Kino {
 			this->Controls->Add(this->prevDayBtn);
 			this->Controls->Add(this->nextDayBtn);
 			this->Controls->Add(this->dateTimePicker1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"PickDateForm";
-			this->Text = L"PickDateForm";
+			this->Text = L"Repertuar - Kino";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &PickDateForm::onFormClosed);
 			this->Load += gcnew System::EventHandler(this, &PickDateForm::onFormLoad);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();

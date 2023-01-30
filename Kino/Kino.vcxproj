@@ -154,7 +154,6 @@
     <ClCompile Include="LoggedScreen.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="LoginQ.cpp" />
-    <ClCompile Include="Movie.cpp" />
     <ClCompile Include="MyTickets.cpp" />
     <ClCompile Include="PaymentForm.cpp" />
     <ClCompile Include="PickDateForm.cpp" />
@@ -198,7 +197,6 @@
     <ClInclude Include="LoginQ.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Movie.h" />
     <ClInclude Include="MyTickets.h">
       <FileType>CppForm</FileType>
     </ClInclude>

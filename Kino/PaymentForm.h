@@ -153,18 +153,23 @@ namespace Kino {
 			// 
 			// goBackBtn
 			// 
+			this->goBackBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->goBackBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->goBackBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"goBackBtn.Image")));
+			this->goBackBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->goBackBtn->Location = System::Drawing::Point(9, 8);
 			this->goBackBtn->Margin = System::Windows::Forms::Padding(2);
 			this->goBackBtn->Name = L"goBackBtn";
-			this->goBackBtn->Size = System::Drawing::Size(68, 24);
+			this->goBackBtn->Size = System::Drawing::Size(112, 42);
 			this->goBackBtn->TabIndex = 0;
-			this->goBackBtn->Text = L"<- powrót";
+			this->goBackBtn->Text = L"    powrót";
 			this->goBackBtn->UseVisualStyleBackColor = true;
 			this->goBackBtn->Click += gcnew System::EventHandler(this, &PaymentForm::goBackBtn_Click);
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(9, 37);
+			this->pictureBox1->Location = System::Drawing::Point(49, 68);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(127, 211);
@@ -175,60 +180,68 @@ namespace Kino {
 			// movieNameLabel
 			// 
 			this->movieNameLabel->AutoSize = true;
-			this->movieNameLabel->Location = System::Drawing::Point(149, 37);
+			this->movieNameLabel->Font = (gcnew System::Drawing::Font(L"Corbel", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->movieNameLabel->Location = System::Drawing::Point(189, 68);
 			this->movieNameLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->movieNameLabel->Name = L"movieNameLabel";
-			this->movieNameLabel->Size = System::Drawing::Size(63, 13);
+			this->movieNameLabel->Size = System::Drawing::Size(137, 29);
 			this->movieNameLabel->TabIndex = 2;
 			this->movieNameLabel->Text = L"movieName";
 			// 
 			// showDateLabel
 			// 
 			this->showDateLabel->AutoSize = true;
-			this->showDateLabel->Location = System::Drawing::Point(149, 58);
+			this->showDateLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->showDateLabel->Location = System::Drawing::Point(190, 110);
 			this->showDateLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->showDateLabel->Name = L"showDateLabel";
-			this->showDateLabel->Size = System::Drawing::Size(55, 13);
+			this->showDateLabel->Size = System::Drawing::Size(93, 24);
 			this->showDateLabel->TabIndex = 3;
 			this->showDateLabel->Text = L"showDate";
 			// 
 			// showVersionLabel
 			// 
 			this->showVersionLabel->AutoSize = true;
-			this->showVersionLabel->Location = System::Drawing::Point(149, 80);
+			this->showVersionLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F));
+			this->showVersionLabel->Location = System::Drawing::Point(190, 148);
 			this->showVersionLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->showVersionLabel->Name = L"showVersionLabel";
-			this->showVersionLabel->Size = System::Drawing::Size(67, 13);
+			this->showVersionLabel->Size = System::Drawing::Size(120, 24);
 			this->showVersionLabel->TabIndex = 4;
 			this->showVersionLabel->Text = L"showVersion";
 			// 
 			// showRoomLabel
 			// 
 			this->showRoomLabel->AutoSize = true;
-			this->showRoomLabel->Location = System::Drawing::Point(149, 102);
+			this->showRoomLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F));
+			this->showRoomLabel->Location = System::Drawing::Point(190, 186);
 			this->showRoomLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->showRoomLabel->Name = L"showRoomLabel";
-			this->showRoomLabel->Size = System::Drawing::Size(60, 13);
+			this->showRoomLabel->Size = System::Drawing::Size(106, 24);
 			this->showRoomLabel->TabIndex = 5;
 			this->showRoomLabel->Text = L"showRoom";
 			// 
 			// numberOfTicketsLabel
 			// 
 			this->numberOfTicketsLabel->AutoSize = true;
-			this->numberOfTicketsLabel->Location = System::Drawing::Point(149, 123);
+			this->numberOfTicketsLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F));
+			this->numberOfTicketsLabel->Location = System::Drawing::Point(190, 220);
 			this->numberOfTicketsLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->numberOfTicketsLabel->Name = L"numberOfTicketsLabel";
-			this->numberOfTicketsLabel->Size = System::Drawing::Size(88, 13);
+			this->numberOfTicketsLabel->Size = System::Drawing::Size(154, 24);
 			this->numberOfTicketsLabel->TabIndex = 6;
 			this->numberOfTicketsLabel->Text = L"numberOfTickets";
 			// 
 			// seatsLabel
 			// 
 			this->seatsLabel->AutoSize = true;
-			this->seatsLabel->Location = System::Drawing::Point(149, 148);
+			this->seatsLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F));
+			this->seatsLabel->Location = System::Drawing::Point(190, 255);
 			this->seatsLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->seatsLabel->Name = L"seatsLabel";
-			this->seatsLabel->Size = System::Drawing::Size(58, 13);
+			this->seatsLabel->Size = System::Drawing::Size(99, 24);
 			this->seatsLabel->TabIndex = 7;
 			this->seatsLabel->Text = L"seatsLabel";
 			// 
@@ -237,7 +250,7 @@ namespace Kino {
 			this->payBtn1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"payBtn1.BackgroundImage")));
 			this->payBtn1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->payBtn1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->payBtn1->Location = System::Drawing::Point(8, 263);
+			this->payBtn1->Location = System::Drawing::Point(48, 357);
 			this->payBtn1->Margin = System::Windows::Forms::Padding(2);
 			this->payBtn1->Name = L"payBtn1";
 			this->payBtn1->Size = System::Drawing::Size(153, 91);
@@ -248,10 +261,12 @@ namespace Kino {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(293, 235);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Corbel", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label1->Location = System::Drawing::Point(257, 315);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(130, 13);
+			this->label1->Size = System::Drawing::Size(227, 23);
 			this->label1->TabIndex = 9;
 			this->label1->Text = L"Wybierz metodê p³atnoœci";
 			// 
@@ -260,7 +275,7 @@ namespace Kino {
 			this->payBtn4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"payBtn4.BackgroundImage")));
 			this->payBtn4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->payBtn4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->payBtn4->Location = System::Drawing::Point(497, 263);
+			this->payBtn4->Location = System::Drawing::Point(537, 357);
 			this->payBtn4->Margin = System::Windows::Forms::Padding(2);
 			this->payBtn4->Name = L"payBtn4";
 			this->payBtn4->Size = System::Drawing::Size(153, 91);
@@ -273,7 +288,7 @@ namespace Kino {
 			this->payBtn2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"payBtn2.BackgroundImage")));
 			this->payBtn2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->payBtn2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->payBtn2->Location = System::Drawing::Point(170, 263);
+			this->payBtn2->Location = System::Drawing::Point(210, 357);
 			this->payBtn2->Margin = System::Windows::Forms::Padding(2);
 			this->payBtn2->Name = L"payBtn2";
 			this->payBtn2->Size = System::Drawing::Size(153, 91);
@@ -286,7 +301,7 @@ namespace Kino {
 			this->payBtn3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"payBtn3.BackgroundImage")));
 			this->payBtn3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->payBtn3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->payBtn3->Location = System::Drawing::Point(333, 263);
+			this->payBtn3->Location = System::Drawing::Point(373, 357);
 			this->payBtn3->Margin = System::Windows::Forms::Padding(2);
 			this->payBtn3->Name = L"payBtn3";
 			this->payBtn3->Size = System::Drawing::Size(153, 91);
@@ -297,68 +312,82 @@ namespace Kino {
 			// emailLabel
 			// 
 			this->emailLabel->AutoSize = true;
-			this->emailLabel->Location = System::Drawing::Point(233, 384);
+			this->emailLabel->Font = (gcnew System::Drawing::Font(L"Corbel", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->emailLabel->Location = System::Drawing::Point(194, 477);
 			this->emailLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->emailLabel->Name = L"emailLabel";
-			this->emailLabel->Size = System::Drawing::Size(64, 13);
+			this->emailLabel->Size = System::Drawing::Size(140, 29);
 			this->emailLabel->TabIndex = 13;
 			this->emailLabel->Text = L"Adres email:";
 			// 
 			// emailTextBox
 			// 
-			this->emailTextBox->Location = System::Drawing::Point(296, 382);
+			this->emailTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->emailTextBox->Location = System::Drawing::Point(338, 474);
 			this->emailTextBox->Margin = System::Windows::Forms::Padding(2);
 			this->emailTextBox->Name = L"emailTextBox";
-			this->emailTextBox->Size = System::Drawing::Size(135, 20);
+			this->emailTextBox->Size = System::Drawing::Size(188, 35);
 			this->emailTextBox->TabIndex = 14;
 			this->emailTextBox->TextChanged += gcnew System::EventHandler(this, &PaymentForm::emailTextBox_TextChanged);
 			// 
 			// blikLabel
 			// 
 			this->blikLabel->AutoSize = true;
-			this->blikLabel->Location = System::Drawing::Point(239, 411);
+			this->blikLabel->Font = (gcnew System::Drawing::Font(L"Corbel", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->blikLabel->Location = System::Drawing::Point(210, 525);
 			this->blikLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->blikLabel->Name = L"blikLabel";
-			this->blikLabel->Size = System::Drawing::Size(55, 13);
+			this->blikLabel->Size = System::Drawing::Size(116, 29);
 			this->blikLabel->TabIndex = 15;
 			this->blikLabel->Text = L"Kod BLIK:";
 			// 
 			// blikTextBox
 			// 
-			this->blikTextBox->Location = System::Drawing::Point(296, 410);
+			this->blikTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->blikTextBox->Location = System::Drawing::Point(338, 522);
 			this->blikTextBox->Margin = System::Windows::Forms::Padding(2);
 			this->blikTextBox->MaxLength = 6;
 			this->blikTextBox->Name = L"blikTextBox";
-			this->blikTextBox->Size = System::Drawing::Size(68, 20);
+			this->blikTextBox->Size = System::Drawing::Size(137, 35);
 			this->blikTextBox->TabIndex = 16;
 			this->blikTextBox->TextChanged += gcnew System::EventHandler(this, &PaymentForm::blikTextBox_TextChanged);
 			// 
 			// ticketPriceLabel
 			// 
 			this->ticketPriceLabel->AutoSize = true;
-			this->ticketPriceLabel->Location = System::Drawing::Point(343, 196);
+			this->ticketPriceLabel->Font = (gcnew System::Drawing::Font(L"Corbel", 20.25F, System::Drawing::FontStyle::Bold));
+			this->ticketPriceLabel->Location = System::Drawing::Point(566, 246);
 			this->ticketPriceLabel->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->ticketPriceLabel->Name = L"ticketPriceLabel";
-			this->ticketPriceLabel->Size = System::Drawing::Size(57, 13);
+			this->ticketPriceLabel->Size = System::Drawing::Size(139, 33);
 			this->ticketPriceLabel->TabIndex = 17;
 			this->ticketPriceLabel->Text = L"ticketPrice";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(279, 196);
+			this->label4->Font = (gcnew System::Drawing::Font(L"Corbel", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label4->Location = System::Drawing::Point(412, 248);
 			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(62, 13);
+			this->label4->Size = System::Drawing::Size(150, 33);
 			this->label4->TabIndex = 18;
 			this->label4->Text = L"Do zap³aty:";
 			// 
 			// buyTicketsBtn
 			// 
-			this->buyTicketsBtn->Location = System::Drawing::Point(535, 443);
+			this->buyTicketsBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->buyTicketsBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->buyTicketsBtn->Location = System::Drawing::Point(551, 540);
 			this->buyTicketsBtn->Margin = System::Windows::Forms::Padding(2);
 			this->buyTicketsBtn->Name = L"buyTicketsBtn";
-			this->buyTicketsBtn->Size = System::Drawing::Size(116, 40);
+			this->buyTicketsBtn->Size = System::Drawing::Size(186, 71);
 			this->buyTicketsBtn->TabIndex = 19;
 			this->buyTicketsBtn->UseVisualStyleBackColor = true;
 			this->buyTicketsBtn->Click += gcnew System::EventHandler(this, &PaymentForm::buyTicketsBtn_Click);
@@ -367,7 +396,7 @@ namespace Kino {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(659, 491);
+			this->ClientSize = System::Drawing::Size(748, 622);
 			this->Controls->Add(this->buyTicketsBtn);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->ticketPriceLabel);
@@ -388,9 +417,11 @@ namespace Kino {
 			this->Controls->Add(this->movieNameLabel);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->goBackBtn);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"PaymentForm";
-			this->Text = L"PaymentForm";
+			this->Text = L"P³atnoœæ - Kino";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &PaymentForm::onFormClosed);
 			this->Load += gcnew System::EventHandler(this, &PaymentForm::PaymentForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();

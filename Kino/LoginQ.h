@@ -56,6 +56,7 @@ namespace Kino {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LoginQ::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->loginBtn = (gcnew System::Windows::Forms::Button());
@@ -66,12 +67,14 @@ namespace Kino {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(102, 36);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Corbel", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label1->Location = System::Drawing::Point(50, 41);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(131, 13);
+			this->label1->Size = System::Drawing::Size(378, 39);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Czy chesz sie zalogowaæ\?";
+			this->label1->Text = L"Czy chcesz siê zalogowaæ\?";
 			// 
 			// contextMenuStrip1
 			// 
@@ -81,10 +84,13 @@ namespace Kino {
 			// 
 			// loginBtn
 			// 
-			this->loginBtn->Location = System::Drawing::Point(16, 78);
-			this->loginBtn->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->loginBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->loginBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->loginBtn->Location = System::Drawing::Point(12, 118);
+			this->loginBtn->Margin = System::Windows::Forms::Padding(2);
 			this->loginBtn->Name = L"loginBtn";
-			this->loginBtn->Size = System::Drawing::Size(66, 25);
+			this->loginBtn->Size = System::Drawing::Size(142, 57);
 			this->loginBtn->TabIndex = 2;
 			this->loginBtn->Text = L"Zaloguj siê";
 			this->loginBtn->UseVisualStyleBackColor = true;
@@ -92,10 +98,13 @@ namespace Kino {
 			// 
 			// registerBtn
 			// 
-			this->registerBtn->Location = System::Drawing::Point(105, 78);
-			this->registerBtn->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->registerBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->registerBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->registerBtn->Location = System::Drawing::Point(169, 118);
+			this->registerBtn->Margin = System::Windows::Forms::Padding(2);
 			this->registerBtn->Name = L"registerBtn";
-			this->registerBtn->Size = System::Drawing::Size(85, 25);
+			this->registerBtn->Size = System::Drawing::Size(142, 57);
 			this->registerBtn->TabIndex = 3;
 			this->registerBtn->Text = L"Zarejestruj siê";
 			this->registerBtn->UseVisualStyleBackColor = true;
@@ -103,10 +112,13 @@ namespace Kino {
 			// 
 			// guestBtn
 			// 
-			this->guestBtn->Location = System::Drawing::Point(209, 78);
-			this->guestBtn->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->guestBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->guestBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->guestBtn->Location = System::Drawing::Point(326, 118);
+			this->guestBtn->Margin = System::Windows::Forms::Padding(2);
 			this->guestBtn->Name = L"guestBtn";
-			this->guestBtn->Size = System::Drawing::Size(110, 25);
+			this->guestBtn->Size = System::Drawing::Size(142, 57);
 			this->guestBtn->TabIndex = 4;
 			this->guestBtn->Text = L"Kontynuj bez konta";
 			this->guestBtn->UseVisualStyleBackColor = true;
@@ -116,15 +128,16 @@ namespace Kino {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(333, 111);
+			this->ClientSize = System::Drawing::Size(484, 208);
 			this->Controls->Add(this->guestBtn);
 			this->Controls->Add(this->registerBtn);
 			this->Controls->Add(this->loginBtn);
 			this->Controls->Add(this->label1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"LoginQ";
-			this->Text = L"LoginQ";
+			this->Text = L"Zaloguj siê do konta - Kino";
 			this->Load += gcnew System::EventHandler(this, &LoginQ::LoginQ_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

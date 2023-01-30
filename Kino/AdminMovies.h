@@ -58,6 +58,7 @@ namespace Kino {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AdminMovies::typeid));
 			this->goBackBtn = (gcnew System::Windows::Forms::Button());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -68,11 +69,16 @@ namespace Kino {
 			// 
 			// goBackBtn
 			// 
-			this->goBackBtn->Location = System::Drawing::Point(12, 12);
+			this->goBackBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->goBackBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->goBackBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"goBackBtn.Image")));
+			this->goBackBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->goBackBtn->Location = System::Drawing::Point(12, 36);
 			this->goBackBtn->Name = L"goBackBtn";
-			this->goBackBtn->Size = System::Drawing::Size(75, 23);
+			this->goBackBtn->Size = System::Drawing::Size(132, 51);
 			this->goBackBtn->TabIndex = 0;
-			this->goBackBtn->Text = L"<- powrót";
+			this->goBackBtn->Text = L"   powrót";
 			this->goBackBtn->UseVisualStyleBackColor = true;
 			this->goBackBtn->Click += gcnew System::EventHandler(this, &AdminMovies::goBackBtn_Click);
 			// 
@@ -87,23 +93,27 @@ namespace Kino {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Corbel", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
 			this->label1->Location = System::Drawing::Point(274, 32);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(137, 55);
+			this->label1->Size = System::Drawing::Size(140, 59);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Filmy";
 			// 
 			// button1
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Corbel", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->button1->Location = System::Drawing::Point(558, 36);
+			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
+			this->button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->button1->Location = System::Drawing::Point(535, 36);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(119, 51);
+			this->button1->Size = System::Drawing::Size(142, 51);
 			this->button1->TabIndex = 3;
 			this->button1->Text = L"Dodaj film";
+			this->button1->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &AdminMovies::button1_Click);
 			// 
@@ -126,8 +136,10 @@ namespace Kino {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->goBackBtn);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"AdminMovies";
-			this->Text = L"AdminMovies";
+			this->Text = L"Zarz¹dzaj filmami - Kino";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &AdminMovies::onFormClosed);
 			this->Load += gcnew System::EventHandler(this, &AdminMovies::AdminMovies_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -172,7 +184,7 @@ namespace Kino {
 			Label^ movieNameLabel = gcnew Label;
 			moviePanel->Controls->Add(movieNameLabel);
 			movieNameLabel->AutoSize = true;
-			movieNameLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+			movieNameLabel->Font = (gcnew System::Drawing::Font(L"Corbel", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
 			movieNameLabel->Location = System::Drawing::Point(130, 3);
 			String^ movieNameLabelName = "movieNameLabel" + i.ToString();
 			movieNameLabel->Name = movieNameLabelName;
@@ -182,6 +194,7 @@ namespace Kino {
 
 			Button^ editBtn = gcnew Button();
 			moviePanel->Controls->Add(editBtn);
+			editBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			editBtn->Location = System::Drawing::Point(135, 50);
 			String^ movieId = this->dataGridView1[0, i]->Value->ToString();
 			String^ editBtnName = "editBtn" + movieId;
@@ -192,6 +205,7 @@ namespace Kino {
 
 			Button^ deleteBtn = gcnew Button();
 			moviePanel->Controls->Add(deleteBtn);
+			deleteBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			deleteBtn->Location = System::Drawing::Point(215, 50);
 			String^ deleteBtnName = "deleteBtn" + movieId;
 			deleteBtn->Name = deleteBtnName;

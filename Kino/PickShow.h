@@ -15,12 +15,7 @@ namespace Kino {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Data::SQLite;
-	//using namespace System::Data::SqlClient;
-	//using namespace System::Data::Odbc;
 
-	/// <summary>
-	/// Podsumowanie informacji o PickShow
-	/// </summary>
 	public ref class PickShow : public System::Windows::Forms::Form
 	{
 	public:
@@ -84,6 +79,7 @@ namespace Kino {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PickShow::typeid));
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -97,10 +93,9 @@ namespace Kino {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(18, 77);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->pictureBox1->Location = System::Drawing::Point(119, 45);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(212, 323);
+			this->pictureBox1->Size = System::Drawing::Size(141, 210);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
@@ -108,10 +103,11 @@ namespace Kino {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(252, 97);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Corbel", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label1->Location = System::Drawing::Point(273, 53);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(35, 13);
+			this->label1->Size = System::Drawing::Size(74, 29);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"label1";
 			this->label1->Click += gcnew System::EventHandler(this, &PickShow::label1_Click);
@@ -119,8 +115,7 @@ namespace Kino {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(819, 689);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Location = System::Drawing::Point(546, 448);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(35, 13);
 			this->label2->TabIndex = 2;
@@ -130,21 +125,21 @@ namespace Kino {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(18, 415);
-			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label3->Location = System::Drawing::Point(12, 272);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(77, 13);
+			this->label3->Size = System::Drawing::Size(113, 20);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Seanse w dniu";
 			// 
 			// richTextBox1
 			// 
 			this->richTextBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->richTextBox1->Location = System::Drawing::Point(256, 148);
-			this->richTextBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->richTextBox1->Location = System::Drawing::Point(278, 91);
 			this->richTextBox1->Name = L"richTextBox1";
 			this->richTextBox1->ReadOnly = true;
-			this->richTextBox1->Size = System::Drawing::Size(394, 245);
+			this->richTextBox1->Size = System::Drawing::Size(263, 159);
 			this->richTextBox1->TabIndex = 4;
 			this->richTextBox1->TabStop = false;
 			this->richTextBox1->Text = L"";
@@ -152,30 +147,33 @@ namespace Kino {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(789, 18);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->dataGridView1->Location = System::Drawing::Point(526, 12);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
-			this->dataGridView1->Size = System::Drawing::Size(82, 68);
+			this->dataGridView1->Size = System::Drawing::Size(55, 44);
 			this->dataGridView1->TabIndex = 5;
 			this->dataGridView1->Visible = false;
 			// 
 			// goBackBtn
 			// 
-			this->goBackBtn->Location = System::Drawing::Point(22, 26);
-			this->goBackBtn->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->goBackBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->goBackBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->goBackBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"goBackBtn.Image")));
+			this->goBackBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->goBackBtn->Location = System::Drawing::Point(12, 12);
 			this->goBackBtn->Name = L"goBackBtn";
-			this->goBackBtn->Size = System::Drawing::Size(112, 35);
+			this->goBackBtn->Size = System::Drawing::Size(101, 39);
 			this->goBackBtn->TabIndex = 6;
-			this->goBackBtn->Text = L"<- powrót";
+			this->goBackBtn->Text = L"       powrót";
 			this->goBackBtn->UseVisualStyleBackColor = true;
 			this->goBackBtn->Click += gcnew System::EventHandler(this, &PickShow::goBackBtn_Click);
 			// 
 			// PickShow
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(890, 723);
+			this->ClientSize = System::Drawing::Size(593, 470);
 			this->Controls->Add(this->goBackBtn);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->richTextBox1);
@@ -183,9 +181,10 @@ namespace Kino {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox1);
-			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"PickShow";
-			this->Text = L"PickShow";
+			this->Text = L"Wybierz seans - Kino";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &PickShow::onFormClosed);
 			this->Load += gcnew System::EventHandler(this, &PickShow::PickShow_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -227,9 +226,6 @@ namespace Kino {
 
 			this->dataGridView1->DataSource = DB::getShowsForMovie(id, startDate, endDate);			this->DTshows->Clear();
 			
-			//SQLiteDataReader^ rShowsForMovie = DB::getShowsForMovie(id, startDate, endDate);
-			//this->DTshows->Load(rShowsForMovie);
-			//rShowsForMovie->Close();
 		}
 		catch (Exception^ e) {
 			MessageBox::Show(e->ToString());
@@ -239,7 +235,8 @@ namespace Kino {
 		for (int i = 0; i < numberOfShows; i++)
 		{
 			Button^ showBtn = gcnew Button();
-			showBtn->Location = System::Drawing::Point(10 + (85 * i), 290);
+			showBtn->Location = System::Drawing::Point(10 + (85 * i), 300);
+			showBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			String^ showId = this->dataGridView1[0, i]->Value->ToString();
 			String^ btnName = "showBtn" + showId;
 			showBtn->Name = btnName;

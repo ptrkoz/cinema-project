@@ -84,6 +84,7 @@ namespace Kino {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(EditShow::typeid));
 			this->cancelBtn = (gcnew System::Windows::Forms::Button());
 			this->addShowBtn = (gcnew System::Windows::Forms::Button());
 			this->saveChangesBtn = (gcnew System::Windows::Forms::Button());
@@ -101,9 +102,12 @@ namespace Kino {
 			// 
 			// cancelBtn
 			// 
+			this->cancelBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->cancelBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
 			this->cancelBtn->Location = System::Drawing::Point(316, 429);
 			this->cancelBtn->Name = L"cancelBtn";
-			this->cancelBtn->Size = System::Drawing::Size(120, 52);
+			this->cancelBtn->Size = System::Drawing::Size(146, 52);
 			this->cancelBtn->TabIndex = 0;
 			this->cancelBtn->Text = L"Anuluj";
 			this->cancelBtn->UseVisualStyleBackColor = true;
@@ -111,9 +115,12 @@ namespace Kino {
 			// 
 			// addShowBtn
 			// 
-			this->addShowBtn->Location = System::Drawing::Point(179, 429);
+			this->addShowBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->addShowBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->addShowBtn->Location = System::Drawing::Point(149, 429);
 			this->addShowBtn->Name = L"addShowBtn";
-			this->addShowBtn->Size = System::Drawing::Size(120, 52);
+			this->addShowBtn->Size = System::Drawing::Size(150, 52);
 			this->addShowBtn->TabIndex = 1;
 			this->addShowBtn->Text = L"Dodaj seans";
 			this->addShowBtn->UseVisualStyleBackColor = true;
@@ -121,9 +128,12 @@ namespace Kino {
 			// 
 			// saveChangesBtn
 			// 
-			this->saveChangesBtn->Location = System::Drawing::Point(179, 429);
+			this->saveChangesBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->saveChangesBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->saveChangesBtn->Location = System::Drawing::Point(149, 429);
 			this->saveChangesBtn->Name = L"saveChangesBtn";
-			this->saveChangesBtn->Size = System::Drawing::Size(120, 52);
+			this->saveChangesBtn->Size = System::Drawing::Size(150, 52);
 			this->saveChangesBtn->TabIndex = 2;
 			this->saveChangesBtn->Text = L"Zapisz zmiany";
 			this->saveChangesBtn->UseVisualStyleBackColor = true;
@@ -132,44 +142,44 @@ namespace Kino {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Corbel", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(226, 95);
+			this->label1->Location = System::Drawing::Point(225, 93);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(73, 31);
+			this->label1->Size = System::Drawing::Size(74, 33);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"Film:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Corbel", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label2->Location = System::Drawing::Point(223, 154);
+			this->label2->Location = System::Drawing::Point(225, 152);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(76, 31);
+			this->label2->Size = System::Drawing::Size(74, 33);
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"Sala:";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Corbel", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
 			this->label3->Location = System::Drawing::Point(219, 206);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(80, 31);
+			this->label3->Size = System::Drawing::Size(80, 33);
 			this->label3->TabIndex = 5;
 			this->label3->Text = L"Data:";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label4->Font = (gcnew System::Drawing::Font(L"Corbel", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label4->Location = System::Drawing::Point(52, 266);
+			this->label4->Location = System::Drawing::Point(60, 269);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(247, 31);
+			this->label4->Size = System::Drawing::Size(239, 33);
 			this->label4->TabIndex = 6;
 			this->label4->Text = L"Wersja dŸwiêkowa:";
 			// 
@@ -198,11 +208,11 @@ namespace Kino {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label5->Font = (gcnew System::Drawing::Font(L"Corbel", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
 			this->label5->Location = System::Drawing::Point(101, 321);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(198, 31);
+			this->label5->Size = System::Drawing::Size(195, 33);
 			this->label5->TabIndex = 9;
 			this->label5->Text = L"Format obrazu:";
 			// 
@@ -257,8 +267,10 @@ namespace Kino {
 			this->Controls->Add(this->saveChangesBtn);
 			this->Controls->Add(this->addShowBtn);
 			this->Controls->Add(this->cancelBtn);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"EditShow";
-			this->Text = L"EditShow";
+			this->Text = L"Zarz¹dzaj seansami - Kino";
 			this->Load += gcnew System::EventHandler(this, &EditShow::EditShow_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

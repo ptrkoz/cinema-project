@@ -77,6 +77,7 @@ namespace Kino {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(LoginForm::typeid));
 			this->LoginLabel = (gcnew System::Windows::Forms::Label());
 			this->emailLoginLabel = (gcnew System::Windows::Forms::Label());
 			this->emailLoginTextBox = (gcnew System::Windows::Forms::TextBox());
@@ -89,54 +90,64 @@ namespace Kino {
 			// LoginLabel
 			// 
 			this->LoginLabel->AutoSize = true;
-			this->LoginLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->LoginLabel->Font = (gcnew System::Drawing::Font(L"Corbel", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->LoginLabel->Location = System::Drawing::Point(51, 38);
+			this->LoginLabel->Location = System::Drawing::Point(176, 92);
 			this->LoginLabel->Name = L"LoginLabel";
-			this->LoginLabel->Size = System::Drawing::Size(184, 39);
+			this->LoginLabel->Size = System::Drawing::Size(250, 59);
 			this->LoginLabel->TabIndex = 0;
 			this->LoginLabel->Text = L"Zaloguj siê";
 			// 
 			// emailLoginLabel
 			// 
 			this->emailLoginLabel->AutoSize = true;
-			this->emailLoginLabel->Location = System::Drawing::Point(49, 119);
+			this->emailLoginLabel->Font = (gcnew System::Drawing::Font(L"Corbel", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->emailLoginLabel->Location = System::Drawing::Point(128, 216);
 			this->emailLoginLabel->Name = L"emailLoginLabel";
-			this->emailLoginLabel->Size = System::Drawing::Size(35, 13);
+			this->emailLoginLabel->Size = System::Drawing::Size(89, 33);
 			this->emailLoginLabel->TabIndex = 1;
 			this->emailLoginLabel->Text = L"Email:";
 			// 
 			// emailLoginTextBox
 			// 
-			this->emailLoginTextBox->Location = System::Drawing::Point(100, 116);
+			this->emailLoginTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+			this->emailLoginTextBox->Location = System::Drawing::Point(241, 216);
 			this->emailLoginTextBox->Name = L"emailLoginTextBox";
-			this->emailLoginTextBox->Size = System::Drawing::Size(100, 20);
+			this->emailLoginTextBox->Size = System::Drawing::Size(225, 31);
 			this->emailLoginTextBox->TabIndex = 2;
 			this->emailLoginTextBox->TextChanged += gcnew System::EventHandler(this, &LoginForm::emailLoginTextBox_TextChanged);
 			// 
 			// passwordLoginLabel
 			// 
 			this->passwordLoginLabel->AutoSize = true;
-			this->passwordLoginLabel->Location = System::Drawing::Point(49, 170);
+			this->passwordLoginLabel->Font = (gcnew System::Drawing::Font(L"Corbel", 20.25F, System::Drawing::FontStyle::Bold));
+			this->passwordLoginLabel->Location = System::Drawing::Point(128, 274);
 			this->passwordLoginLabel->Name = L"passwordLoginLabel";
-			this->passwordLoginLabel->Size = System::Drawing::Size(39, 13);
+			this->passwordLoginLabel->Size = System::Drawing::Size(89, 33);
 			this->passwordLoginLabel->TabIndex = 3;
 			this->passwordLoginLabel->Text = L"Has³o:";
 			// 
 			// passwordLoginTextBox
 			// 
-			this->passwordLoginTextBox->Location = System::Drawing::Point(100, 167);
+			this->passwordLoginTextBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+			this->passwordLoginTextBox->Location = System::Drawing::Point(241, 274);
 			this->passwordLoginTextBox->Name = L"passwordLoginTextBox";
 			this->passwordLoginTextBox->PasswordChar = '*';
-			this->passwordLoginTextBox->Size = System::Drawing::Size(100, 20);
+			this->passwordLoginTextBox->Size = System::Drawing::Size(225, 31);
 			this->passwordLoginTextBox->TabIndex = 4;
 			this->passwordLoginTextBox->TextChanged += gcnew System::EventHandler(this, &LoginForm::passwordLoginTextBox_TextChanged);
 			// 
 			// loginBtn
 			// 
-			this->loginBtn->Location = System::Drawing::Point(99, 213);
+			this->loginBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->loginBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->loginBtn->Location = System::Drawing::Point(200, 352);
 			this->loginBtn->Name = L"loginBtn";
-			this->loginBtn->Size = System::Drawing::Size(75, 23);
+			this->loginBtn->Size = System::Drawing::Size(208, 63);
 			this->loginBtn->TabIndex = 5;
 			this->loginBtn->Text = L"Zaloguj";
 			this->loginBtn->UseVisualStyleBackColor = true;
@@ -144,12 +155,17 @@ namespace Kino {
 			// 
 			// goBackBtn
 			// 
-			this->goBackBtn->Location = System::Drawing::Point(9, 8);
+			this->goBackBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->goBackBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->goBackBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"goBackBtn.Image")));
+			this->goBackBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->goBackBtn->Location = System::Drawing::Point(9, 11);
 			this->goBackBtn->Margin = System::Windows::Forms::Padding(2);
 			this->goBackBtn->Name = L"goBackBtn";
-			this->goBackBtn->Size = System::Drawing::Size(64, 20);
+			this->goBackBtn->Size = System::Drawing::Size(137, 52);
 			this->goBackBtn->TabIndex = 6;
-			this->goBackBtn->Text = L"<- powrót";
+			this->goBackBtn->Text = L"   powrót";
 			this->goBackBtn->UseVisualStyleBackColor = true;
 			this->goBackBtn->Click += gcnew System::EventHandler(this, &LoginForm::goBackBtn_Click);
 			// 
@@ -157,7 +173,7 @@ namespace Kino {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(590, 467);
 			this->Controls->Add(this->goBackBtn);
 			this->Controls->Add(this->loginBtn);
 			this->Controls->Add(this->passwordLoginTextBox);
@@ -165,8 +181,10 @@ namespace Kino {
 			this->Controls->Add(this->emailLoginTextBox);
 			this->Controls->Add(this->emailLoginLabel);
 			this->Controls->Add(this->LoginLabel);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"LoginForm";
-			this->Text = L"Kino";
+			this->Text = L"Logowanie - Kino";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &LoginForm::onFormClosed);
 			this->Load += gcnew System::EventHandler(this, &LoginForm::LoginForm_Load);
 			this->ResumeLayout(false);

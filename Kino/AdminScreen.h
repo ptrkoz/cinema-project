@@ -64,6 +64,7 @@ namespace Kino {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AdminScreen::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->MovieBtn = (gcnew System::Windows::Forms::Button());
 			this->ShowBtn = (gcnew System::Windows::Forms::Button());
@@ -74,19 +75,20 @@ namespace Kino {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Corbel", 26.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(78, 66);
+			this->label1->Location = System::Drawing::Point(88, 67);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(336, 39);
+			this->label1->Size = System::Drawing::Size(335, 42);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Panel administratora";
 			// 
 			// MovieBtn
 			// 
-			this->MovieBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->MovieBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->MovieBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->MovieBtn->Location = System::Drawing::Point(135, 153);
+			this->MovieBtn->Location = System::Drawing::Point(138, 153);
 			this->MovieBtn->Name = L"MovieBtn";
 			this->MovieBtn->Size = System::Drawing::Size(221, 73);
 			this->MovieBtn->TabIndex = 1;
@@ -96,9 +98,10 @@ namespace Kino {
 			// 
 			// ShowBtn
 			// 
-			this->ShowBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->ShowBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->ShowBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->ShowBtn->Location = System::Drawing::Point(135, 246);
+			this->ShowBtn->Location = System::Drawing::Point(138, 246);
 			this->ShowBtn->Name = L"ShowBtn";
 			this->ShowBtn->Size = System::Drawing::Size(221, 73);
 			this->ShowBtn->TabIndex = 2;
@@ -108,9 +111,10 @@ namespace Kino {
 			// 
 			// RoomsBtn
 			// 
-			this->RoomsBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->RoomsBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->RoomsBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->RoomsBtn->Location = System::Drawing::Point(135, 341);
+			this->RoomsBtn->Location = System::Drawing::Point(138, 341);
 			this->RoomsBtn->Name = L"RoomsBtn";
 			this->RoomsBtn->Size = System::Drawing::Size(221, 73);
 			this->RoomsBtn->TabIndex = 3;
@@ -120,9 +124,10 @@ namespace Kino {
 			// 
 			// logOutBtn
 			// 
-			this->logOutBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->logOutBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->logOutBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->logOutBtn->Location = System::Drawing::Point(135, 437);
+			this->logOutBtn->Location = System::Drawing::Point(138, 437);
 			this->logOutBtn->Name = L"logOutBtn";
 			this->logOutBtn->Size = System::Drawing::Size(221, 73);
 			this->logOutBtn->TabIndex = 4;
@@ -140,8 +145,10 @@ namespace Kino {
 			this->Controls->Add(this->ShowBtn);
 			this->Controls->Add(this->MovieBtn);
 			this->Controls->Add(this->label1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"AdminScreen";
-			this->Text = L"AdminScreen";
+			this->Text = L"Panel administratora - Kino";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &AdminScreen::onFormClosed);
 			this->Load += gcnew System::EventHandler(this, &AdminScreen::AdminScreen_Load);
 			this->ResumeLayout(false);

@@ -65,6 +65,7 @@ namespace Kino {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyTickets::typeid));
 			this->backBtn = (gcnew System::Windows::Forms::Button());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -74,11 +75,16 @@ namespace Kino {
 			// 
 			// backBtn
 			// 
+			this->backBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->backBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->backBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"backBtn.Image")));
+			this->backBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->backBtn->Location = System::Drawing::Point(12, 12);
 			this->backBtn->Name = L"backBtn";
-			this->backBtn->Size = System::Drawing::Size(75, 23);
+			this->backBtn->Size = System::Drawing::Size(132, 51);
 			this->backBtn->TabIndex = 0;
-			this->backBtn->Text = L"<- powrót";
+			this->backBtn->Text = L"   powrót";
 			this->backBtn->UseVisualStyleBackColor = true;
 			this->backBtn->Click += gcnew System::EventHandler(this, &MyTickets::backBtn_Click);
 			// 
@@ -93,18 +99,18 @@ namespace Kino {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Corbel", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
 			this->label1->Location = System::Drawing::Point(169, 64);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(252, 55);
+			this->label1->Size = System::Drawing::Size(259, 59);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Moje bilety";
 			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(427, 12);
+			this->dataGridView1->Location = System::Drawing::Point(453, 12);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(240, 129);
 			this->dataGridView1->TabIndex = 3;
@@ -119,8 +125,10 @@ namespace Kino {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->backBtn);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyTickets";
-			this->Text = L"MyTickets";
+			this->Text = L"Moje bilety - Kino";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &MyTickets::onFormClosed);
 			this->Load += gcnew System::EventHandler(this, &MyTickets::MyTickets_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -171,7 +179,7 @@ namespace Kino {
 			Label^ movieNameLabel = gcnew Label;
 			ticketPanel->Controls->Add(movieNameLabel);
 			movieNameLabel->AutoSize = true;
-			movieNameLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,static_cast<System::Byte>(238)));
+			movieNameLabel->Font = (gcnew System::Drawing::Font(L"Corbel", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,static_cast<System::Byte>(238)));
 			movieNameLabel->Location = System::Drawing::Point(130, 3);
 			String^ movieNameLabelName = "movieNameLabel" + i.ToString();
 			movieNameLabel->Name = movieNameLabelName;
@@ -208,6 +216,7 @@ namespace Kino {
 
 			Button^ detailsBtn = gcnew Button();
 			ticketPanel->Controls->Add(detailsBtn);
+			detailsBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			detailsBtn->Location = System::Drawing::Point(135, 110);
 			String^ ticketId = this->dataGridView1[3, i]->Value->ToString();
 			String^ btnName = "detailsBtn" + ticketId;

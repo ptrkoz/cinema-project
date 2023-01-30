@@ -59,6 +59,7 @@ namespace Kino {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AdminRooms::typeid));
 			this->goBackBtn = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
@@ -69,22 +70,27 @@ namespace Kino {
 			// 
 			// goBackBtn
 			// 
-			this->goBackBtn->Location = System::Drawing::Point(12, 12);
+			this->goBackBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->goBackBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->goBackBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"goBackBtn.Image")));
+			this->goBackBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->goBackBtn->Location = System::Drawing::Point(12, 29);
 			this->goBackBtn->Name = L"goBackBtn";
-			this->goBackBtn->Size = System::Drawing::Size(75, 23);
+			this->goBackBtn->Size = System::Drawing::Size(115, 45);
 			this->goBackBtn->TabIndex = 0;
-			this->goBackBtn->Text = L"<- powrót";
+			this->goBackBtn->Text = L"    powrót";
 			this->goBackBtn->UseVisualStyleBackColor = true;
 			this->goBackBtn->Click += gcnew System::EventHandler(this, &AdminRooms::goBackBtn_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Corbel", 27.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(221, 35);
+			this->label1->Location = System::Drawing::Point(220, 29);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(86, 39);
+			this->label1->Size = System::Drawing::Size(88, 45);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Sale";
 			// 
@@ -98,20 +104,24 @@ namespace Kino {
 			// 
 			// addRoomBtn
 			// 
-			this->addRoomBtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->addRoomBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->addRoomBtn->Font = (gcnew System::Drawing::Font(L"Corbel", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->addRoomBtn->Location = System::Drawing::Point(401, 29);
+			this->addRoomBtn->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"addRoomBtn.Image")));
+			this->addRoomBtn->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->addRoomBtn->Location = System::Drawing::Point(393, 29);
 			this->addRoomBtn->Name = L"addRoomBtn";
-			this->addRoomBtn->Size = System::Drawing::Size(111, 45);
+			this->addRoomBtn->Size = System::Drawing::Size(119, 45);
 			this->addRoomBtn->TabIndex = 3;
 			this->addRoomBtn->Text = L"Dodaj sale";
+			this->addRoomBtn->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->addRoomBtn->UseVisualStyleBackColor = true;
 			this->addRoomBtn->Click += gcnew System::EventHandler(this, &AdminRooms::addRoomBtn_Click);
 			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(155, -58);
+			this->dataGridView1->Location = System::Drawing::Point(26, -76);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->Size = System::Drawing::Size(240, 150);
 			this->dataGridView1->TabIndex = 4;
@@ -127,8 +137,10 @@ namespace Kino {
 			this->Controls->Add(this->flowLayoutPanel1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->goBackBtn);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"AdminRooms";
-			this->Text = L"AdminRooms";
+			this->Text = L"Zarz¹dzaj salami - Kino";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &AdminRooms::onFormClosed);
 			this->Load += gcnew System::EventHandler(this, &AdminRooms::AdminRooms_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -161,7 +173,7 @@ namespace Kino {
 			Label^ roomNameLabel = gcnew Label;
 			roomPanel->Controls->Add(roomNameLabel);
 			roomNameLabel->AutoSize = true;
-			roomNameLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
+			roomNameLabel->Font = (gcnew System::Drawing::Font(L"Corbel", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(238)));
 			roomNameLabel->Location = System::Drawing::Point(3, 3);
 			String^ roomNameLabelName = "roomNameLabel" + i.ToString();
 			roomNameLabel->Name = roomNameLabelName;
@@ -171,20 +183,22 @@ namespace Kino {
 
 			Button^ editBtn = gcnew Button();
 			roomPanel->Controls->Add(editBtn);
+			editBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			editBtn->Location = System::Drawing::Point(10, 40);
 			String^ roomId = this->dataGridView1[0, i]->Value->ToString();
 			String^ editBtnName = "editBtn" + roomId;
 			editBtn->Name = editBtnName;
-			editBtn->Size = System::Drawing::Size(45, 30);
+			editBtn->Size = System::Drawing::Size(60, 30);
 			editBtn->Text = "Edytuj";
 			editBtn->Click += gcnew System::EventHandler(this, &AdminRooms::editBtnClick);
 		
 			Button^ deleteBtn = gcnew Button();
 			roomPanel->Controls->Add(deleteBtn);
-			deleteBtn->Location = System::Drawing::Point(60, 40);
+			deleteBtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			deleteBtn->Location = System::Drawing::Point(75, 40);
 			String^ deleteBtnName = "deleteBtn" + roomId;
 			deleteBtn->Name = deleteBtnName;
-			deleteBtn->Size = System::Drawing::Size(45, 30);
+			deleteBtn->Size = System::Drawing::Size(60, 30);
 			deleteBtn->Text = "Usuñ";
 			deleteBtn->Click += gcnew System::EventHandler(this, &AdminRooms::deleteBtnClick);
 		}
